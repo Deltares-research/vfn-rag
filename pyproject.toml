@@ -8,7 +8,7 @@ readme = "README.md"
 repository = "https://github.com/openearth/voice-for-nature"
 
 packages = [
-    { include = "src/" },
+    { include = "voice_for_nature_backend", from = "src"}
 ]
 
 [tool.poetry.urls]
