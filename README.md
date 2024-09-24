@@ -1,5 +1,23 @@
 # voice-for-nature
 
+## Installation
+```bash
+poetry install
+```
+### Install only dependencies
+```bash
+poetry install --no-dev
+```
+## install dev dependencies
+```bash
+poetry install --only=dev
+```
+
+## install the analysis dependencies
+```bash
+poetry install --only=analysis
+```
+
 # eBird API
 
 ## Get API Key
