@@ -15,7 +15,16 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.12"
+
+[tool.poetry.group.ebird.dependencies]
 requests= "^2.26.0"
+
+[tool.poetry.group.llm.dependencies]
+llama-index = "^0.11.12"
+llama-index-embeddings-huggingface = "^0.3.1"
+llama-index-llms-ollama = "^0.3.2"
+
+[tool.poetry.group.analysis.dependencies]
 jupyterlab= "^4.0.0"
 
 [tool.poetry.dev-dependencies]
