@@ -5,7 +5,12 @@ on: [push]
 jobs:
   main-package:
     runs-on: ${{ matrix.os }}
-
+    strategy:
+      matrix:
+        os: [ ubuntu-latest] #, macos-latest, windows-latest
+        python-version: ["3.12" ]
+    env:
+      OS: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v3
