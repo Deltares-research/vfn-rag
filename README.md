@@ -18,6 +18,11 @@ poetry install --only=dev
 poetry install --only=analysis
 ```
 
+to install both the dev and analysis dependencies
+```bash
+poetry install --only=dev,analysis
+```
+
 # eBird API
 
 ## Get API Key
