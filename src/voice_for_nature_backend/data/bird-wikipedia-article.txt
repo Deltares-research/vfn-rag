@@ -1,0 +1,986 @@
+This is a list of the bird species recorded in the Netherlands. The avifauna of the Netherlands included a total of 564 species documented in the wild through October 2022 according to Checklist of Dutch Bird Species with supplemental additions from Avibase. The checklist "incorporates all decisions by the Dutch rarities committee 'Commissie Dwaalgasten Nederlandse Avifauna' (CDNA) and the Dutch taxonomic committee 'Commissie Systematiek Nederlandse Avifauna' (CSNA)". Of these species, 13 have been introduced by humans, and one is extinct. Two species were inadequately documented before 1800.[1]
+
+This list's taxonomic treatment (designation and sequence of orders, families and species) and nomenclature (English and scientific names) are those of The Clements Checklist of Birds of the World, 2022 edition.[2]
+
+The following tags have been used to highlight some categories of occurrence. The notes of population status such as "endangered" apply to the world population and are from Bird Checklists of the World.[3]
+
+(A) Accidental - a species that rarely or accidentally occurs in the Netherlands, requiring review by the CDNA for inclusion in the record
+(I) Introduced - a species whose "ancestors originated from captivity or ship transport" and which have been established for at least 20 years per the CDNA
+(B) Before 1800 - species "recorded only before 1800 (location and/or date not well enough documented)" per the CDNA
+
+
+Ducks, geese, and waterfowl
+Order: Anseriformes   Family: Anatidae
+
+Anatidae includes the ducks and most duck-like waterfowl, such as geese and swans. These birds are adapted to an aquatic existence with webbed feet, flattened bills, and feathers that are excellent at shedding water due to an oily coating.
+
+Bar-headed goose, Anser indicus (I)
+Snow goose, Anser caerulescens
+Ross's goose, Anser rossii (A)
+Graylag goose, Anser anser
+Greater white-fronted goose, Anser albifrons
+Lesser white-fronted goose, Anser erythropus (vulnerable)
+Taiga bean-goose, Anser fabalis
+Tundra bean-goose, Anser serrirostris
+Pink-footed goose, Anser brachyrhynchus
+Brant, Branta bernicla
+Barnacle goose, Branta leucopsis
+Cackling goose, Branta hutchinsii (A)
+Canada goose, Branta canadensis
+Red-breasted goose, Branta ruficollis (A) (vulnerable)
+Mute swan, Cygnus olor
+Black swan, Cygnus atratus (I)
+Tundra swan, Cygnus columbianus (A)
+Whooper swan, Cygnus cygnus
+Egyptian goose, Alopochen aegyptiaca (I)
+Ruddy shelduck, Tadorna ferruginea
+Common shelduck, Tadorna tadorna
+Mandarin duck, Aix galericulata (I)
+Baikal teal, Sibirionetta formosa (A)
+Garganey, Spatula querquedula
+Blue-winged teal, Spatula discors (A)
+Northern shoveler, Spatula clypeata
+Gadwall, Mareca strepera
+Falcated duck, Mareca falcata (A) (near-threatened)
+Eurasian wigeon, Mareca penelope
+American wigeon, Mareca americana (A)
+Mallard, Anas platyrhynchos
+Northern pintail, Anas acuta
+Green-winged teal, Anas crecca
+Marbled teal, Marmaronetta angustirostris (A) (vulnerable)
+Red-crested pochard, Netta rufina
+Redhead, Aythya americana (A)
+Common pochard, Aythya ferina (vulnerable)
+Ring-necked duck, Aythya collaris (A)
+Ferruginous duck, Aythya nyroca (near-threatened)
+Tufted duck, Aythya fuligula
+Greater scaup, Aythya marila
+Lesser scaup, Aythya affinis (A)
+Steller's eider, Polysticta stelleri (A) (vulnerable)
+King eider, Somateria spectabilis (A)
+Common eider, Somateria mollissima (near-threatened)
+Harlequin duck, Histrionicus histrionicus (A)
+Surf scoter, Melanitta perspicillata (A)
+Velvet scoter, Melanitta fusca (vulnerable)
+White-winged scoter, Melanitta deglandi (A)
+Common scoter, Melanitta nigra
+Black scoter, Melanitta americana (A) (near-threatened)
+Long-tailed duck, Clangula hyemalis (vulnerable)
+Bufflehead, Bucephala albeola (A)
+Common goldeneye, Bucephala clangula
+Smew, Mergellus albellus
+Hooded merganser, Lophodytes cucullatus (A)
+Common merganser, Mergus merganser
+Red-breasted merganser, Mergus serrator
+Ruddy duck, Oxyura jamaicensis (I)
+White-headed duck, Oxyura leucocephala (A) (endangered)
+Pheasants, grouse, and allies
+Order: Galliformes   Family: Phasianidae
+
+The Phasianidae are a family of terrestrial birds. In general, they are plump (although they vary in size) and have broad, relatively short wings.
+
+Black grouse, Lyrurus tetrix
+Gray partridge, Perdix perdix
+Ring-necked pheasant, Phasianus colchicus (I)
+Common quail, Coturnix coturnix
+Flamingos
+Order: Phoenicopteriformes   Family: Phoenicopteridae
+
+Flamingos are gregarious wading birds, usually 3 to 5 feet (0.9 to 1.5 m) tall, found in both the Western and eastern Hemispheres. Flamingos filter-feed on shellfish and algae. Their oddly shaped beaks are specially adapted to separate mud and silt from the food they consume and, uniquely, are used upside-down.
+
+Chilean flamingo, Phoenicopterus chilensis (I) (near-threatened)
+American flamingo, Phoenicopterus ruber (A)
+Greater flamingo, Phoenicopterus roseus (A)
+Grebes
+Order: Podicipediformes   Family: Podicipedidae
+
+Grebes are small to medium-large freshwater diving birds. They have lobed toes and are excellent swimmers and divers. However, they have their feet placed far back on the body, making them quite ungainly on land.
+
+Little grebe, Tachybaptus ruficollis
+Pied-billed grebe, Podilymbus podiceps (A)
+Horned grebe, Podiceps auritus (vulnerable)
+Red-necked grebe, Podiceps grisegena
+Great crested grebe, Podiceps cristatus
+Eared grebe, Podiceps nigricollis
+Pigeons and doves
+Order: Columbiformes   Family: Columbidae
+
+Pigeons and doves are stout-bodied birds with short necks and short slender bills with a fleshy cere.
+
+Rock pigeon, Columba livia (I)
+Stock dove, Columba oenas
+Common wood-pigeon, Columba palumbus
+European turtle-dove, Streptopelia turtur (vulnerable)
+Oriental turtle-dove, Streptopelia orientalis (A)
+Eurasian collared-dove, Streptopelia decaocto
+Sandgrouse
+Order: Pterocliformes   Family: Pteroclidae
+
+Sandgrouse have small, pigeon like heads and necks, but sturdy compact bodies. They have long pointed wings and sometimes tails and a fast direct flight. Flocks fly to watering holes at dawn and dusk. Their legs are feathered down to the toes.
+
+Pallas's sandgrouse, Syrrhaptes paradoxus (A)
+Bustards
+Order: Otidiformes   Family: Otididae
+
+Bustards are large terrestrial birds mainly associated with dry open country and steppes in the Old World. They are omnivorous and nest on the ground. They walk steadily on strong legs and big toes, pecking for food as they go. They have long broad wings with "fingered" wingtips and striking patterns in flight. Many have interesting mating displays.
+
+Great bustard, Otis tarda (A) (vulnerable)
+MacQueen's bustard, Chlamydotis macqueenii (A) (vulnerable)
+Little bustard, Tetrax tetrax (A) (near-threatened)
+Cuckoos
+Order: Cuculiformes   Family: Cuculidae
+
+The family Cuculidae includes cuckoos, roadrunners and anis. These birds are of variable size with slender bodies, long tails and strong legs. The Old World cuckoos are brood parasites.
+
+Great spotted cuckoo, Clamator glandarius (A)
+Yellow-billed cuckoo, Coccyzus americanus (A)
+Common cuckoo, Cuculus canorus
+Nightjars and allies
+Order: Caprimulgiformes   Family: Caprimulgidae
+
+Nightjars are medium-sized nocturnal birds that usually nest on the ground. They have long wings, short legs and very short bills. Most have small feet, of little use for walking, and long pointed wings. Their soft plumage is camouflaged to resemble bark or leaves.
+
+Eurasian nightjar, Caprimulgus europaeus
+Swifts
+Order: Caprimulgiformes   Family: Apodidae
+
+Swifts are small birds which spend the majority of their lives flying. These birds have very short legs and never settle voluntarily on the ground, perching instead only on vertical surfaces. Many swifts have long swept-back wings which resemble a crescent or boomerang.
+
+Chimney swift, Chaetura pelagica (A)
+White-throated needletail, Hirundapus caudacutus (A)
+Alpine swift, Tachymarptis melba (A)
+Common swift, Apus apus
+Pallid swift, Apus pallidus (A)
+Pacific swift, Apus pacificus (A)
+Little swift, Apus affinis (A)
+Rails, gallinules, and coots
+Order: Gruiformes   Family: Rallidae
+
+Rallidae is a large family of small to medium-sized birds which includes the rails, crakes, coots and gallinules. Typically they inhabit dense vegetation in damp environments near lakes, swamps or rivers. In general they are shy and secretive birds, making them difficult to observe. Most species have strong legs and long toes which are well adapted to soft uneven surfaces. They tend to have short, rounded wings and to be weak fliers.
+
+Water rail, Rallus aquaticus
+Corn crake, Crex crex
+Spotted crake, Porzana porzana (A)
+Eurasian moorhen, Gallinula chloropus
+Eurasian coot, Fulica atra
+Western swamphen, Porphyrio porphyrio (A)
+Little crake, Zapornia parva (A)
+Baillon's crake, Zapornia pusilla
+Cranes
+Order: Gruiformes   Family: Gruidae
+
+Cranes are large, long-legged and long-necked birds. Unlike the similar-looking but unrelated herons, cranes fly with necks outstretched, not pulled back. Most have elaborate and noisy courting displays or "dances".
+
+Demoiselle crane, Anthropoides virgo (A)
+Sandhill crane, Antigone canadensis (A)
+Common crane, Grus grus
+Thick-knees
+Order: Charadriiformes   Family: Burhinidae
+
+The thick-knees are a group of largely tropical waders in the family Burhinidae. They are found worldwide within the tropical zone, with some species also breeding in temperate Europe and Australia. They are medium to large waders with strong black or yellow-black bills, large yellow eyes and cryptic plumage. Despite being classed as waders, most species have a preference for arid or semi-arid habitats.
+
+Eurasian thick-knee, Burhinus oedicnemus
+Stilts and avocets
+Order: Charadriiformes   Family: Recurvirostridae
+
+Recurvirostridae is a family of large wading birds, which includes the avocets and stilts. The avocets have long legs and long up-curved bills. The stilts have extremely long legs and long, thin, straight bills.
+
+Black-winged stilt, Himantopus himantopus
+Pied avocet, Recurvirostra avosetta
+Oystercatchers
+Order: Charadriiformes   Family: Haematopodidae
+
+The oystercatchers are large and noisy plover-like birds, with strong bills used for smashing or prising open molluscs.
+
+Eurasian oystercatcher, Haematopus ostralegus (near-threatened)
+Plovers and lapwings
+Order: Charadriiformes   Family: Charadriidae
+
+The family Charadriidae includes the plovers, dotterels and lapwings. They are small to medium-sized birds with compact bodies, short, thick necks and long, usually pointed, wings. They are found in open country worldwide, mostly in habitats near water.
+
+Black-bellied plover, Pluvialis squatarola
+European golden-plover, Pluvialis apricaria
+American golden-plover, Pluvialis dominica (A)
+Pacific golden-plover, Pluvialis fulva (A)
+Northern lapwing, Vanellus vanellus (near-threatened)
+Gray-headed lapwing, Vanellus cinereus (A)
+Red-wattled lapwing, Vanellus indicus (A)
+Sociable lapwing, Vanellus gregarius (A) (critically endangered)
+White-tailed lapwing, Vanellus leucurus (A)
+Greater sand-plover, Charadrius leschenaultii (A)
+Caspian plover, Charadrius asiaticus (A)
+Kentish plover, Charadrius alexandrinus
+Snowy plover, Charadrius nivosus (A)
+Common ringed plover, Charadrius hiaticula
+Little ringed plover, Charadrius dubius
+Killdeer, Charadrius vociferus (A)
+Oriental plover, Charadrius veredus (A)
+Eurasian dotterel, Charadrius morinellus
+Sandpipers and allies
+Order: Charadriiformes   Family: Scolopacidae
+
+Scolopacidae is a large diverse family of small to medium-sized shorebirds including the sandpipers, curlews, godwits, shanks, tattlers, woodcocks, snipes, dowitchers and phalaropes. The majority of these species eat small invertebrates picked out of the mud or soil. Variation in length of legs and bills enables multiple species to feed in the same habitat, particularly on the coast, without direct competition for food.
+
+Upland sandpiper, Bartramia longicauda (A)
+Whimbrel, Numenius phaeopus
+Little curlew, Numenius minutus (A)
+Slender-billed curlew, Numenius tenuirostris (A) (critically endangered)
+Eurasian curlew, Numenius arquata (near-threatened)
+Bar-tailed godwit, Limosa lapponica (near-threatened)
+Black-tailed godwit, Limosa limosa (near-threatened)
+Ruddy turnstone, Arenaria interpres
+Great knot, Calidris tenuirostris (A) (endangered)
+Red knot, Calidris canutus (near-threatened)
+Ruff, Calidris pugnax
+Broad-billed sandpiper, Calidris falcinellus (A)
+Sharp-tailed sandpiper, Calidris acuminata (A)
+Stilt sandpiper, Calidris himantopus (A)
+Curlew sandpiper, Calidris ferruginea (near-threatened)
+Temminck's stint, Calidris temminckii
+Long-toed stint, Calidris subminuta (A)
+Red-necked stint, Calidris ruficollis (A) (near-threatened)
+Sanderling, Calidris alba
+Dunlin, Calidris alpina
+Purple sandpiper, Calidris maritima
+Baird's sandpiper, Calidris bairdii (A)
+Little stint, Calidris minuta
+Least sandpiper, Calidris minutilla (A)
+White-rumped sandpiper, Calidris fuscicollis (A)
+Buff-breasted sandpiper, Calidris subruficollis (A) (near-threatened)
+Pectoral sandpiper, Calidris melanotos (A)
+Semipalmated sandpiper, Calidris pusilla (A) (near-threatened)
+Western sandpiper, Calidris mauri (A)
+Long-billed dowitcher, Limnodromus scolopaceus (A)
+Jack snipe, Lymnocryptes minimus
+Eurasian woodcock, Scolopax rusticola
+Great snipe, Gallinago media (A) (extirpated)[4] (near-threatened)
+Common snipe, Gallinago gallinago
+Wilson's snipe, Gallinago delicata (A)
+Terek sandpiper, Xenus cinereus (A)
+Wilson's phalarope, Phalaropus tricolor (A)
+Red-necked phalarope, Phalaropus lobatus
+Red phalarope, Phalaropus fulicarius
+Common sandpiper, Actitis hypoleucos
+Spotted sandpiper, Actitis macularius (A)
+Green sandpiper, Tringa ochropus
+Solitary sandpiper, Tringa solitaria (A)
+Gray-tailed tattler, Tringa brevipes (A) (near-threatened)
+Spotted redshank, Tringa erythropus
+Greater yellowlegs, Tringa melanoleuca (A)
+Common greenshank, Tringa nebularia
+Lesser yellowlegs, Tringa flavipes (A)
+Marsh sandpiper, Tringa stagnatilis (A)
+Wood sandpiper, Tringa glareola
+Common redshank, Tringa totanus
+Pratincoles and coursers
+Order: Charadriiformes   Family: Glareolidae
+
+Glareolidae is a family of wading birds comprising the pratincoles, which have short legs, long pointed wings and long forked tails, and the coursers, which have long legs, short wings and long, pointed bills which curve downwards.
+
+Cream-colored courser, Cursorius cursor (A)
+Collared pratincole, Glareola pratincola (A)
+Oriental pratincole, Glareola maldivarum (A)
+Black-winged pratincole, Glareola nordmanni (A) (near-threatened)
+Skuas and jaegers
+Order: Charadriiformes   Family: Stercorariidae
+
+The family Stercorariidae are, in general, medium to large birds, typically with grey or brown plumage, often with white markings on the wings. They nest on the ground in temperate and arctic regions and are long-distance migrants.
+
+Great skua, Stercorarius skua
+Pomarine jaeger, Stercorarius pomarinus
+Parasitic jaeger, Stercorarius parasiticus
+Long-tailed jaeger, Stercorarius longicaudus (A)
+Auks, murres, and puffins
+Order: Charadriiformes   Family: Alcidae
+
+Auks are superficially similar to penguins due to their black-and-white colors, their upright posture and some of their habits, however they are not related to the penguins and differ in being able to fly. Auks live on the open sea, only deliberately coming ashore to nest.
+
+Dovekie, Alle alle
+Common murre, Uria aalge
+Thick-billed murre, Uria lomvia (A)
+Razorbill, Alca torda (near-threatened)
+Great auk, Pinguinus impennis (B) (extinct)
+Black guillemot, Cepphus grylle (A)
+Atlantic puffin, Fratercula arctica (vulnerable)
+Gulls, terns, and skimmers
+Order: Charadriiformes   Family: Laridae
+
+Laridae is a family of medium to large seabirds, the gulls, terns, and skimmers. Gulls are typically grey or white, often with black markings on the head or wings. They have stout, longish bills and webbed feet. Terns are a group of generally medium to large seabirds typically with grey or white plumage, often with black markings on the head. Most terns hunt fish by diving but some pick insects off the surface of fresh water. Terns are generally long-lived birds, with several species known to live in excess of 30 years.
+
+Black-legged kittiwake, Rissa tridactyla (vulnerable)
+Ivory gull, Pagophila eburnea (A) (near-threatened)
+Sabine's gull, Xema sabini
+Slender-billed gull, Chroicocephalus genei (A)
+Bonaparte's gull, Chroicocephalus philadelphia (A)
+Black-headed gull, Chroicocephalus ridibundus
+Little gull, Hydrocoloeus minutus
+Ross's gull, Rhodostethia rosea (A)
+Laughing gull, Leucophaeus atricilla (A)
+Franklin's gull, Leucophaeus pipixcan (A)
+Mediterranean gull, Ichthyaetus melanocephalus
+Pallas's gull, Ichthyaetus ichthyaetus (A)
+Audouin's gull, Ichthyaetus audouinii (A)
+Common gull, Larus canus
+Ring-billed gull, Larus delawarensis (A)
+Herring gull, Larus argentatus
+Yellow-legged gull, Larus michahellis
+Caspian gull, Larus cachinnans
+Iceland gull, Larus glaucoides
+Lesser black-backed gull, Larus fuscus
+Glaucous gull, Larus hyperboreus
+Great black-backed gull, Larus marinus
+Sooty tern, Onychoprion fuscatus (A)
+Bridled tern, Onychoprion anaethetus (A)
+Little tern, Sternula albifrons
+Gull-billed tern, Gelochelidon nilotica
+Caspian tern, Hydroprogne caspia
+Black tern, Chlidonias niger
+White-winged tern, Chlidonias leucopterus
+Whiskered tern, Chlidonias hybrida
+Roseate tern, Sterna dougallii (A)
+Common tern, Sterna hirundo
+Arctic tern, Sterna paradisaea
+Forster's tern, Sterna forsteri (A)
+Sandwich tern, Thalasseus sandvicensis
+Elegant tern, Thalasseus elegans (A)
+Tropicbirds
+Order: Phaethontiformes   Family: Phaethontidae
+
+Tropicbirds are slender white birds of tropical oceans, with exceptionally long central tail feathers. Their heads and long wings have black markings.
+
+Red-billed tropicbird, Phaethon aethereus (A)
+Loons
+Order: Gaviiformes   Family: Gaviidae
+
+Loons, known as divers in Europe, are a group of aquatic birds found in many parts of North America and northern Europe. They are the size of a large duck or small goose, which they somewhat resemble when swimming, but to which they are completely unrelated.
+
+Red-throated loon, Gavia stellata
+Arctic loon, Gavia arctica
+Common loon, Gavia immer
+Yellow-billed loon, Gavia adamsii (A) (near-threatened)
+Southern storm-petrels
+Order: Procellariiformes   Family: Oceanitidae
+
+Southern storm petrels, are seabirds in the family Oceanitidae, part of the order Procellariiformes. These smallest of seabirds feed on planktonic crustaceans and small fish picked from the surface, typically while hovering. Their flight is fluttering and sometimes bat-like.
+
+Wilson's storm-petrel, Oceanites oceanicus (A)
+White-faced storm-petrel, Pelagodroma marina (A)
+Northern storm-petrels
+Order: Procellariiformes   Family: Hydrobatidae
+
+The northern storm-petrels are relatives of the petrels and are the smallest seabirds. They feed on planktonic crustaceans and small fish picked from the surface, typically while hovering. The flight is fluttering and sometimes bat-like.
+
+European storm-petrel, Hydrobates pelagicus (A)
+Leach's storm-petrel, Hydrobates leucorhous (vulnerable)
+Shearwaters and petrels
+Order: Procellariiformes   Family: Procellariidae
+
+The procellariids are the main group of medium-sized "true petrels", characterised by united nostrils with medium septum and a long outer functional primary.
+
+Northern fulmar, Fulmarus glacialis
+Fea's petrel, Pterodroma feae (A)
+Cory's shearwater, Calonectris borealis (A)
+Great shearwater, Ardenna gravis (A)
+Sooty shearwater, Ardenna griseus (near-threatened)
+Manx shearwater, Puffinus puffinus
+Balearic shearwater, Puffinus mauretanicus (A) (critically endangered)
+Storks
+Order: Ciconiiformes   Family: Ciconiidae
+
+Storks are large, long-legged, long-necked, wading birds with long, stout bills. Storks are mute, but bill-clattering is an important mode of communication at the nest. Their nests can be large and may be reused for many years. Many species are migratory.
+
+Black stork, Ciconia nigra
+White stork, Ciconia ciconia
+Boobies and gannets
+Order: Suliformes   Family: Sulidae
+
+The sulids comprise the gannets and boobies. Both groups are medium to large coastal seabirds that plunge-dive for fish.
+
+Brown booby, Sula leucogaster (A)
+Northern gannet, Morus bassanus
+Cormorants and shags
+Order: Suliformes   Family: Phalacrocoracidae
+
+Phalacrocoracidae is a family of medium to large coastal, fish-eating seabirds that includes cormorants and shags. Plumage colouration varies, with the majority having mainly dark plumage, some species being black-and-white and a few being colourful.
+
+Pygmy cormorant, Microcarbo pygmeus (A)
+Great cormorant, Phalacrocorax carbo
+European shag, Gulosus aristotelis
+Pelicans
+Order: Pelecaniformes   Family: Pelecanidae
+
+Pelicans are large water birds with a distinctive pouch under their beak. As with other members of the order Pelecaniformes, they have webbed feet with four toes.
+
+Great white pelican, Pelecanus onocrotalus (A)
+Dalmatian pelican, Pelecanus crispus (A) (near-threatened)
+Heron, egrets, and bitterns
+Order: Pelecaniformes   Family: Ardeidae
+
+The family Ardeidae contains the bitterns, herons and egrets. Herons and egrets are medium to large wading birds with long necks and legs. Bitterns tend to be shorter necked and more wary. Members of Ardeidae fly with their necks retracted, unlike other long-necked birds such as storks, ibises and spoonbills.
+
+Great bittern, Botaurus stellaris
+Little bittern, Ixobrychus minutus
+Gray heron, Ardea cinerea
+Purple heron, Ardea purpurea
+Great egret, Ardea alba
+Little egret, Egretta garzetta
+Cattle egret, Bubulcus ibis
+Squacco heron, Ardeola ralloides (A)
+Green heron, Butorides virescens (A)
+Striated heron, Butorides striata (A)
+Black-crowned night-heron, Nycticorax nycticorax
+Yellow-crowned night-heron, Nyctanassa violacea (A)
+Ibises and spoonbills
+Order: Pelecaniformes   Family: Threskiornithidae
+
+Threskiornithidae is a family of large terrestrial and wading birds which includes the ibises and spoonbills. They have long, broad wings with 11 primary and about 20 secondary feathers. They are strong fliers and despite their size and weight, very capable soarers.
+
+Glossy ibis, Plegadis falcinellus
+African sacred ibis, Threskiornis aethiopicus (I)
+Northern bald ibis, Geronticus eremita (I)
+Eurasian spoonbill, Platalea leucorodia
+Osprey
+Order: Accipitriformes   Family: Pandionidae
+
+The family Pandionidae contains only one species, the osprey. The osprey is a medium-large raptor which is a specialist fish-eater with a worldwide distribution.
+
+Osprey, Pandion haliaetus
+Hawks, eagles, and kites
+Order: Accipitriformes   Family: Accipitridae
+
+Accipitridae is a family of birds of prey, which includes hawks, eagles, kites, harriers and Old World vultures. These birds have powerful hooked beaks for tearing flesh from their prey, strong legs, powerful talons and keen eyesight.
+
+Black-winged kite, Elanus caeruleus (A)
+Bearded vulture, Gypaetus barbatus (A)
+Egyptian vulture, Neophron percnopterus (A) (endangered)
+European honey-buzzard, Pernis apivorus
+Cinereous vulture, Aegypius monachus (A) (near-threatened)
+Rüppell's griffon, Gyps rueppelli (A)
+Eurasian griffon, Gyps fulvus (A)
+Short-toed snake-eagle, Circaetus gallicus (A)
+Lesser spotted eagle, Clanga pomarina (A)
+Greater spotted eagle, Clanga clanga (A) (vulnerable)
+Booted eagle, Hieraaetus pennatus (A)
+Steppe eagle, Aquila nipalensis (A) (endangered)
+Spanish eagle, Aquila adalberti (A) (vulnerable)
+Imperial eagle, Aquila heliaca (A) (vulnerable)
+Golden eagle, Aquila chrysaetos (A)
+Bonelli's eagle, Aquila fasciata (A)
+Eurasian marsh-harrier, Circus aeruginosus
+Hen harrier, Circus cyaneus
+Northern harrier, Circus hudsonius (A)
+Pallid harrier, Circus macrourus (A) (near-threatened)
+Montagu's harrier, Circus pygargus
+Eurasian sparrowhawk, Accipiter nisus
+Northern goshawk, Accipiter gentilis
+Red kite, Milvus milvus (near-threatened)
+Black kite, Milvus migrans
+White-tailed eagle, Haliaeetus albicilla
+Rough-legged hawk, Buteo lagopus
+Common buzzard, Buteo buteo
+Long-legged buzzard, Buteo rufinus (A)
+Barn-owls
+Order: Strigiformes   Family: Tytonidae
+
+Barn owls are medium to large owls with large heads and characteristic heart-shaped faces. They have long strong legs with powerful talons.
+
+Barn owl, Tyto alba
+Owls
+Order: Strigiformes   Family: Strigidae
+
+The typical owls are small to large solitary nocturnal birds of prey. They have large forward-facing eyes and ears, a hawk-like beak and a conspicuous circle of feathers around each eye called a facial disk
+
+Eurasian scops-owl, Otus scops
+Eurasian eagle-owl, Bubo bubo
+Snowy owl, Bubo scandiacus (A) (vulnerable)
+Northern hawk owl, Surnia ulula (A)
+Eurasian pygmy-owl, Glaucidium passerinum (A)
+Little owl, Athene noctua
+Tawny owl, Strix aluco
+Long-eared owl, Asio otus
+Short-eared owl, Asio flammeus
+Boreal owl, Aegolius funereus (A)
+Hoopoes
+Order: Bucerotiformes   Family: Upupidae
+
+Hoopoes have black, white and orangey-pink coloring with a large erectile crest on their head.
+
+Eurasian hoopoe, Upupa epops
+Kingfishers
+Order: Coraciiformes   Family: Alcedinidae
+
+Kingfishers are medium-sized birds with large heads, long, pointed bills, short legs and stubby tails.
+
+Common kingfisher, Alcedo atthis
+Belted kingfisher, Ceryle alcyon (A)
+Bee-eaters
+Order: Coraciiformes   Family: Meropidae
+
+The bee-eaters are a group of near passerine birds in the family Meropidae. Most species are found in Africa but others occur in southern Europe, Madagascar, Australia and New Guinea. They are characterised by richly colored plumage, slender bodies and usually elongated central tail feathers. All are colourful and have long downturned bills and pointed wings, which give them a swallow-like appearance when seen from afar.
+
+Blue-cheeked bee-eater, Merops persicus (A)
+European bee-eater, Merops apiaster
+Rollers
+Order: Coraciiformes   Family: Coraciidae
+
+Rollers resemble crows in size and build, but are more closely related to the kingfishers and bee-eaters. They share the colourful appearance of those groups with blues and browns predominating. The two inner front toes are connected, but the outer toe is not.
+
+European roller, Coracias garrulus (A)
+Woodpeckers
+Order: Piciformes   Family: Picidae
+
+Woodpeckers are small to medium-sized birds with chisel-like beaks, short legs, stiff tails and long tongues used for capturing insects. Some species have feet with two toes pointing forward and two backward, while several species have only three toes. Many woodpeckers have the habit of tapping noisily on tree trunks with their beaks.
+
+Eurasian wryneck, Jynx torquilla
+Middle spotted woodpecker, Dendrocoptes medius
+Great spotted woodpecker, Dendrocopos major
+Lesser spotted woodpecker, Dryobates minor
+Gray-headed woodpecker, Picus canus (A)
+Eurasian green woodpecker, Picus viridis
+Black woodpecker, Dryocopus martius
+Falcons and caracaras
+Order: Falconiformes   Family: Falconidae
+
+Falconidae is a family of diurnal birds of prey. They differ from hawks, eagles and kites in that they kill with their beaks instead of their talons.
+
+Lesser kestrel, Falco naumanni (A)
+Eurasian kestrel, Falco tinnunculus
+American kestrel, Falco sparverius (A)
+Red-footed falcon, Falco vespertinus (near-threatened)
+Eleonora's falcon, Falco eleonorae (A)
+Merlin, Falco columbarius
+Eurasian hobby, Falco subbuteo
+Gyrfalcon, Falco rusticolus (A)
+Peregrine falcon, Falco peregrinus
+Old World parrots
+Order: Psittaciformes   Family: Psittaculidae
+
+Characteristic features of parrots include a strong curved bill, an upright stance, strong legs, and clawed zygodactyl feet. Many parrots are vividly colored, and some are multi-colored. In size they range from 8 cm (3.1 in) to 1 m (3.3 ft) in length. Old World parrots are found from Africa east across south and southeast Asia and Oceania to Australia and New Zealand.
+
+Alexandrine parakeet, Psittacula eupatria (I) (near-threatened)
+Rose-ringed parakeet, Psittacula krameri (I)
+Vireos, shrike-babblers, and erpornis
+Order: Passeriformes   Family: Vireonidae
+
+The vireos are a group of small to medium-sized passerine birds restricted to the New World and Southeast Asia.
+
+Red-eyed vireo, Vireo olivaceus (A)
+Old World orioles
+Order: Passeriformes   Family: Oriolidae
+
+The Old World orioles are colourful passerine birds. They are not related to the New World orioles.
+
+Eurasian golden oriole, Oriolus oriolus
+Shrikes
+Order: Passeriformes   Family: Laniidae
+
+Shrikes are passerine birds known for their habit of catching other birds and small animals and impaling the uneaten portions of their bodies on thorns. A shrike's beak is hooked, like that of a typical bird of prey.
+
+Red-backed shrike, Lanius collurio
+Red-tailed shrike, Lanius phoenicuroides (A)
+Isabelline shrike, Lanius isabellinus (A)
+Brown shrike, Lanius cristatus (A)
+Long-tailed shrike, Lanius schach (A)
+Northern shrike, Lanius borealis (A)
+Great gray shrike, Lanius excubitor
+Lesser gray shrike, Lanius minor (A)
+Masked shrike, Lanius nubicus (A)
+Woodchat shrike, Lanius senator
+Crows, jays, and magpies
+Order: Passeriformes   Family: Corvidae
+
+The family Corvidae includes crows, ravens, jays, choughs, magpies, treepies, nutcrackers and ground jays. Corvids are above average in size among the Passeriformes, and some of the larger species show high levels of intelligence.
+
+Eurasian jay, Garrulus glandarius
+Eurasian magpie, Pica pica
+Eurasian nutcracker, Nucifraga caryocatactes (A)
+Yellow-billed chough, Pyrrhocorax graculus (A)
+Eurasian jackdaw, Corvus monedula
+Daurian jackdaw, Corvus dauuricus (A)
+House crow, Corvus splendens (I)
+Rook, Corvus frugilegus
+Carrion crow, Corvus corone
+Hooded crow, Corvus cornix
+Common raven, Corvus corax
+Tits, chickadees, and titmice
+Order: Passeriformes   Family: Paridae
+
+The Paridae are mainly small stocky woodland species with short stout bills. Some have crests. They are adaptable birds, with a mixed diet including seeds and insects.
+
+Coal tit, Periparus ater
+Crested tit, Lophophanes cristatus
+Marsh tit, Poecile palustris
+Willow tit, Poecile montana
+Eurasian blue tit, Cyanistes caeruleus
+Great tit, Parus major
+Penduline-tits
+Order: Passeriformes   Family: Remizidae
+
+The penduline-tits are a group of small passerine birds related to the true tits. They are insectivores.
+
+Eurasian penduline-tit, Remiz pendulinus
+Larks
+Order: Passeriformes   Family: Alaudidae
+
+Larks are small terrestrial birds with often extravagant songs and display flights. Most larks are fairly dull in appearance. Their food is insects and seeds.
+
+Horned lark, Eremophila alpestris
+Greater short-toed lark, Calandrella brachydactyla (A)
+Bimaculated lark, Bimaculated (A)
+Calandra lark, Melanocorypha calandra (A)
+Wood lark, Lullula arborea
+Eurasian skylark, Alauda arvensis
+Crested lark, Galerida cristata (A)
+Bearded reedling
+Order: Passeriformes   Family: Panuridae
+
+This species, the only one in its family, is found in reed beds throughout temperate Europe and Asia.
+
+Bearded reedling, Panurus biarmicus
+Cisticolas and allies
+Order: Passeriformes   Family: Cisticolidae
+
+The Cisticolidae are warblers found mainly in warmer southern regions of the Old World. They are generally very small birds of drab brown or grey appearance found in open country such as grassland or scrub.
+
+Zitting cisticola, Cisticola juncidis
+Reed warblers and allies
+Order: Passeriformes   Family: Acrocephalidae
+
+The members of this family are usually rather large for "warblers". Most are rather plain olivaceous brown above with much yellow to beige below. They are usually found in open woodland, reedbeds, or tall grass. The family occurs mostly in southern to western Eurasia and surroundings, but it also ranges far into the Pacific, with some species in Africa.
+
+Booted warbler, Iduna caligata (A)
+Sykes's warbler, Iduna rama (A)
+Eastern olivaceous warbler, Iduna pallida (A)
+Upcher's warbler, Hippolais languida (A)
+Melodious warbler, Hippolais polyglotta
+Icterine warbler, Hippolais icterina
+Aquatic warbler, Acrocephalus paludicola (vulnerable)
+Moustached warbler, Acrocephalus melanopogon (A)
+Sedge warbler, Acrocephalus schoenobaenus
+Paddyfield warbler, Acrocephalus agricola (A)
+Blyth's reed warbler, Acrocephalus dumetorum (A)
+Marsh warbler, Acrocephalus palustris
+Eurasian reed warbler, Acrocephalus scirpaceus
+Great reed warbler, Acrocephalus arundinaceus
+Grassbirds and allies
+Order: Passeriformes   Family: Locustellidae
+
+Locustellidae are a family of small insectivorous songbirds found mainly in Eurasia, Africa, and the Australian region. They are smallish birds with tails that are usually long and pointed, and tend to be drab brownish or buffy all over.
+
+Pallas's grasshopper warbler, Helopsaltes certhiola (A)
+Lanceolated warbler, Locustella lanceolata (A)
+River warbler, Locustella fluviatilis
+Savi's warbler, Locustella luscinioides
+Common grasshopper-warbler, Locustella naevia
+Swallows
+Order: Passeriformes   Family: Hirundinidae
+
+The family Hirundinidae is adapted to aerial feeding. They have a slender streamlined body, long pointed wings and a short bill with a wide gape. The feet are adapted to perching rather than walking, and the front toes are partially joined at the base.
+
+Purple martin, Progne subis (A)
+Bank swallow, Riparia riparia
+Eurasian crag-martin, Ptyonoprogne rupestris (A)
+Barn swallow, Hirundo rustica
+Red-rumped swallow, Hirundo daurica
+Common house-martin, Delichon urbicum
+Leaf warblers
+Order: Passeriformes   Family: Phylloscopidae
+
+Leaf warblers are a family of small insectivorous birds found mostly in Eurasia and ranging into Wallacea and Africa. The species are of various sizes, often green-plumaged above and yellow below, or more subdued with greyish-green to greyish-brown colors.
+
+Wood warbler, Phylloscopus sibilatrix
+Western Bonelli's warbler, Phylloscopus bonelli (A)
+Eastern Bonelli's warbler, Phylloscopus orientalis (A)
+Yellow-browed warbler, Phylloscopus inornatus
+Hume's warbler, Phylloscopus humei (A)
+Pallas's leaf warbler, Phylloscopus proregulus (A)
+Radde's warbler, Phylloscopus schwarzi (A)
+Dusky warbler, Phylloscopus fuscatus (A)
+Willow warbler, Phylloscopus trochilus
+Common chiffchaff, Phylloscopus collybita
+Iberian chiffchaff, Phylloscopus ibericus (A)
+Eastern crowned warbler, Phylloscopus coronatus (A)
+Green warbler, Phylloscopus nitidus (A)
+Greenish warbler, Phylloscopus trochiloides (A)
+Two-barred warbler, Phylloscopus plumbeitarsus (A)
+Arctic warbler, Phylloscopus borealis (A)
+Bush warblers and allies
+Order: Passeriformes   Family: Scotocercidae
+
+The members of this family are found throughout Africa, Asia, and Polynesia. Their taxonomy is in flux, and some authorities place some genera in other families.[5]
+
+Cetti's warbler, Cettia cetti
+Long-tailed tits
+Order: Passeriformes   Family: Aegithalidae
+
+Long-tailed tits are a group of small passerine birds with medium to long tails. They make woven bag nests in trees. Most eat a mixed diet which includes insects.
+
+Long-tailed tit, Aegithalos caudatus
+Sylviid warblers, parrotbills, and allies
+Order: Passeriformes   Family: Sylviidae
+
+The family Sylviidae is a group of small insectivorous passerine birds. They mainly occur as breeding species, as the common name implies, in Europe, Asia and, to a lesser extent, Africa. Most are of generally undistinguished appearance, but many have distinctive songs.
+
+Eurasian blackcap, Sylvia atricapilla
+Garden warbler, Sylvia borin
+Barred warbler, Curruca nisoria
+Lesser whitethroat, Curruca curruca
+Western Orphean warbler, Curruca hortensis (A)
+Eastern Orphean warbler, Curruca crassirostris (A)
+African desert warbler, Curruca deserti (A)
+Asian desert warbler, Curruca nana (A)
+Sardinian warbler, Curruca melanocephala (A)
+Moltoni's warbler, Curruca subalpina (A)
+Western subalpine warbler, Curruca iberiae (A)
+Eastern subalpine warbler, Curruca cantillans (A)
+Greater whitethroat, Curruca communis
+Spectacled warbler, Curruca conspicillata (A)
+Marmora's warbler, Curruca sarda (A)
+Dartford warbler, Curruca undata (A) (near-threatened)
+Vinous-throated parrotbill, Sinosuthora webbiana (I)
+Ashy-throated parrotbill, Sinosuthora alphonsiana (I)
+Kinglets
+Order: Passeriformes   Family: Regulidae
+
+The kinglets, also called crests, are a small group of birds often included in the Old World warblers, but frequently given family status because they also resemble the titmice.
+
+Goldcrest, Regulus regulus
+Common firecrest, Regulus ignicapilla
+Wallcreeper
+Order: Passeriformes   Family: Tichodromidae
+
+The wallcreeper is a small bird related to the nuthatch family, which has stunning crimson, grey and black plumage.
+
+Wallcreeper, Tichodroma muraria (A)
+Nuthatches
+Order: Passeriformes   Family: Sittidae
+
+Nuthatches are small woodland birds. They have the unusual ability to climb down trees head first, unlike other birds which can only go upwards. Nuthatches have big heads, short tails and powerful bills and feet.
+
+Eurasian nuthatch, Sitta europaea
+Treecreepers
+Order: Passeriformes   Family: Certhiidae
+
+Treecreepers are small woodland birds, brown above and white below. They have thin pointed down-curved bills, which they use to extricate insects from bark. They have stiff tail feathers, like woodpeckers, which they use to support themselves on vertical trees.
+
+Eurasian treecreeper, Certhia familiaris
+Short-toed treecreeper, Certhia brachydactyla
+Wrens
+Order: Passeriformes   Family: Troglodytidae
+
+The wrens are mainly small and inconspicuous except for their loud songs. These birds have short wings and thin down-turned bills. Several species often hold their tails upright. All are insectivorous.
+
+Eurasian wren, Troglodytes troglodytes
+Dippers
+Order: Passeriformes   Family: Cinclidae
+
+Dippers are a group of perching birds whose habitat includes aquatic environments in the Americas, Europe and Asia. They are named for their bobbing or dipping movements.
+
+White-throated dipper, Cinclus cinclus
+Starlings
+Order: Passeriformes   Family: Sturnidae
+
+Starlings are small to medium-sized passerine birds. Their flight is strong and direct and they are very gregarious. Their preferred habitat is fairly open country. They eat insects and fruit. Plumage is typically dark with a metallic sheen.
+
+European starling, Sturnus vulgaris
+Rosy starling, Pastor roseus (A)
+Daurian starling, Agropsar sturninus (A)
+Mockingbirds and thrashers
+Order: Passeriformes   Family: Mimidae
+
+The mimids are a family of passerine birds which includes thrashers, mockingbirds, tremblers, and the New World catbirds. These birds are notable for their vocalization, especially their remarkable ability to mimic a wide variety of birds and other sounds heard outdoors. The species tend towards dull grays and browns in their appearance.
+
+Northern mockingbird, Mimus polyglottos (A)
+Thrushes and allies
+Order: Passeriformes   Family: Turdidae
+
+The thrushes are a group of passerine birds that occur mainly in the Old World. They are plump, soft plumaged, small to medium-sized insectivores or sometimes omnivores, often feeding on the ground. Many have attractive songs.
+
+White's thrush, Zoothera aurea (A)
+Gray-cheeked thrush, Catharus minimus (A)
+Hermit thrush, Catharus guttatus (A)
+Siberian thrush, Geokichla sibirica (A)
+Mistle thrush, Turdus viscivorus
+Song thrush, Turdus philomelos
+Redwing, Turdus iliacus (near-threatened)
+Eurasian blackbird, Turdus merula
+American robin, Turdus migratorius (A)
+Eyebrowed thrush, Turdus obscurus (A)
+Fieldfare, Turdus pilaris
+Ring ouzel, Turdus torquatus
+Black-throated thrush, Turdus atrogularis (A)
+Dusky thrush, Turdus naumanni (A)
+Old World flycatchers
+Order: Passeriformes   Family: Muscicapidae
+
+Old World flycatchers are a large group of small passerine birds native to the Old World. They are mainly small arboreal insectivores. The appearance of these birds is highly varied, but they mostly have weak songs and harsh calls.
+
+Spotted flycatcher, Muscicapa striata
+Rufous-tailed scrub-robin, Cercotrichas galactotes (A)
+European robin, Erithacus rubecula
+White-throated robin, Irania gutturalis (A)
+Thrush nightingale, Luscinia luscinia
+Common nightingale, Luscinia megarhynchos
+Bluethroat, Luscinia svecica
+Siberian rubythroat, Calliope calliope (A)
+Red-flanked bluetail, Tarsiger cyanurus (A)
+Red-breasted flycatcher, Ficedula parva
+Semicollared flycatcher, Ficedula semitorquata (A)
+European pied flycatcher, Ficedula hypoleuca
+Collared flycatcher, Ficedula albicollis (A)
+Common redstart, Phoenicurus phoenicurus
+Black redstart, Phoenicurus ochruros
+Rufous-tailed rock thrush, Monticola saxatilis (A)
+Blue rock-thrush, Monticola solitarius (A)
+Whinchat, Saxicola rubetra
+European stonechat, Saxicola rubicola
+Siberian stonechat, Saxicola maurus (A)
+Amur stonechat, Saxicola stejnegeri (A)
+Northern wheatear, Oenanthe oenanthe
+Isabelline wheatear, Oenanthe isabellina (A)
+Desert wheatear, Oenanthe deserti (A)
+Western black-eared wheatear, Oenanthe hispanica (A)
+Eastern black-eared wheatear, Oenanthe melanoleuca (A)
+Pied wheatear, Oenanthe pleschanka (A)
+White-crowned wheatear, Oenanthe leucopyga (A)
+Waxwings
+Order: Passeriformes   Family: Bombycillidae
+
+The waxwings are a group of birds with soft silky plumage and unique red tips to some of the wing feathers. In the Bohemian and cedar waxwings, these tips look like sealing wax and give the group its name. These are arboreal birds of northern forests. They live on insects in summer and berries in winter.
+
+Bohemian waxwing, Bombycilla garrulus
+Accentors
+Order: Passeriformes   Family: Prunellidae
+
+The accentors are in the only bird family, Prunellidae, which is completely endemic to the Palearctic. They are small, fairly drab species superficially similar to sparrows.
+
+Alpine accentor, Prunella collaris (A)
+Siberian accentor, Prunella montanella (A)
+Dunnock, Prunella modularis
+Old World sparrows
+Order: Passeriformes   Family: Passeridae
+
+Old World sparrows are small passerine birds. In general, sparrows tend to be small, plump, brown or grey birds with short tails and short powerful beaks. Sparrows are seed eaters, but they also consume small insects.
+
+House sparrow, Passer domesticus
+Italian sparrow, Passer italiae (A)
+Spanish sparrow, Passer hispaniolensis (A)
+Eurasian tree sparrow, Passer montanus
+Wagtails and pipits
+Order: Passeriformes   Family: Motacillidae
+
+Motacillidae is a family of small passerine birds with medium to long tails. They include the wagtails, longclaws and pipits. They are slender, ground feeding insectivores of open country.
+
+Gray wagtail, Motacilla cinerea
+Western yellow wagtail, Motacilla flava
+Eastern yellow wagtail, Motacilla tschutschensis (A)
+Citrine wagtail, Motacilla citreola (A)
+White wagtail, Motacilla alba.
+Richard's pipit, Anthus richardi
+Blyth's pipit, Anthus godlewskii (A)
+Tawny pipit, Anthus campestris
+Meadow pipit, Anthus pratensis (near-threatened)
+Tree pipit, Anthus trivialis
+Olive-backed pipit, Anthus hodgsoni (A)
+Red-throated pipit, Anthus cervinus (A)
+Water pipit, Anthus spinoletta
+Rock pipit, Anthus petrosus
+American pipit, Anthus rubescens (A)
+Finches, euphonias, and allies
+Order: Passeriformes   Family: Fringillidae
+
+Finches are seed-eating passerine birds, that are small to moderately large and have a strong beak, usually conical and in some species very large. All have twelve tail feathers and nine primaries. These birds have a bouncing flight with alternating bouts of flapping and gliding on closed wings, and most sing well.
+
+Common chaffinch, Fringilla coelebs
+Brambling, Fringilla montifringilla
+Hawfinch, Coccothraustes coccothraustes
+Common rosefinch, Carpodacus erythrinus
+Pine grosbeak, Pinicola enucleator (A)
+Eurasian bullfinch, Pyrrhula pyrrhula
+Trumpeter finch, Bucanetes githagineus (A)
+European greenfinch, Chloris chloris
+Twite, Linaria flavirostris
+Eurasian linnet, Linaria cannabina
+Common redpoll, Acanthis flammea
+Lesser redpoll, Acanthis cabaret
+Hoary redpoll, Acanthis hornemanni (A)
+Parrot crossbill, Loxia pytyopsittacus
+Red crossbill, Loxia curvirostra
+White-winged crossbill, Loxia leucoptera (A)
+European goldfinch, Carduelis carduelis
+Citril finch, Carduelis citrinella (B)
+European serin, Serinus serinus
+Eurasian siskin, Spinus spinus
+Longspurs and snow buntings
+Order: Passeriformes   Family: Calcariidae
+
+The Calcariidae are a group of passerine birds which had been traditionally grouped with the New World sparrows, but differ in a number of respects and are usually found in open grassy areas.
+
+Lapland longspur, Calcarius lapponicus
+Snow bunting, Plectrophenax nivalis
+Old World buntings
+Order: Passeriformes   Family: Emberizidae
+
+The emberizids are a large family of passerine birds. They are seed-eating birds with distinctively shaped bills. Many emberizid species have distinctive head patterns.
+
+Black-headed bunting, Emberiza melanocephala (A)
+Red-headed bunting, Emberiza bruniceps (A)
+Corn bunting, Emberiza calandra
+Rock bunting, Emberiza cia (A)
+Cirl bunting, Emberiza cirlus (A)
+Yellowhammer, Emberiza citrinella
+Pine bunting, Emberiza leucocephalos (A)
+Gray-necked bunting, Emberiza buchanani (A)
+Ortolan bunting, Emberiza hortulana
+Cretzschmar's bunting, Emberiza caesia (A)
+Reed bunting, Emberiza schoeniclus
+Yellow-breasted bunting, Emberiza aureola (A) (critically endangered)
+Little bunting, Emberiza pusilla
+Rustic bunting, Emberiza rustica (vulnerable)
+Black-faced bunting, Emberiza spodocephala (A)
+Chestnut bunting, Emberiza rutila (A)
+Yellow-browed bunting, Emberiza chrysophrys (A)
+New World sparrows
+Order: Passeriformes   Family: Passerellidae
+
+The New World sparrows (or American sparrows) are a large family of seed-eating passerine birds with distinctively finch-like bills.
+
+Dark-eyed junco, Junco hyemalis (A)
+White-crowned sparrow, Zonotrichia leucophrys (A)
+White-throated sparrow, Zonotrichia albicollis (A)
+Song sparrow, Melospiza melodia (A)
+Troupials and allies
+Order: Passeriformes   Family: Icteridae
+
+Icterids make up a family of small- to medium-sized, often colorful, New-World passerine birds. Most species have black as a predominant plumage color, often enlivened by yellow, orange or red. The species in the family vary widely in size, shape, behavior and coloration.
+
+Yellow-headed blackbird, Xanthocephalus xanthocephalus (A)
+Bobolink, Dolichonyx oryzivorus (A)
+Baltimore oriole, Icterus galbula (A)
+Common grackle, Quiscalus quiscula (A) (near-threatened)
+New World warblers
+Order: Passeriformes   Family: Parulidae
+
+The New World warblers are a group of small often colorful passerine birds restricted to the New World. Most are arboreal, but some are more terrestrial. Most members of this family are insectivores.
+
+Northern waterthrush, Parkesia noveboracensis (A)
+Blackpoll warbler, Setophaga striata (A)
+Yellow-rumped warbler, Setophaga coronata (A)
+Cardinals and allies
+Order: Passeriformes   Family: Cardinalidae
+
+The cardinals are a family of robust, seed-eating birds with strong bills. They are typically associated with open woodland. The sexes usually have distinct plumages.
+
+Indigo bunting, Passerina cyanea (A)
+See also
+Ardea – the official publication of the Netherlands Ornithologists' Union (NOU)
+List of birds
+Lists of birds by region
+References
+ van den Berg, Arnoud B. (October 1, 2020). "Checklist of Dutch bird species" (PDF). Retrieved October 30, 2020.
+ Clements, J. F., T. S. Schulenberg, M. J. Iliff, S. M. Billerman, T. A. Fredericks, B. L. Sullivan, and C. L. Wood. 2022. The eBird/Clements Checklist of Birds of the World: v2022. Downloaded from http://www.birds.cornell.edu/clementschecklist/download/ Retrieved October 25, 2022.
+ Lepage, Denis (August 2, 2020). "Checklist of Birds of Netherlands". Avibase bird checklists of the world. Retrieved October 30, 2020.
+ BirdLife International. (2017) [amended version of 2016 assessment]. "Gallinago media". IUCN Red List of Threatened Species. 2017: e.T22693093A111105264. doi:10.2305/IUCN.UK.2017-1.RLTS.T22693093A111105264.en. Retrieved 3 May 2021.
+ Gill, F. and D. Donsker (Eds). 2019. IOC World Bird List (v 9.2). doi:10.14344/IOC.ML.9.2. http://www.worldbirdnames.org/ retrieved 22 June 2019.
+Lepage, Denis. "Checklist of Birds of the Netherlands". Bird Checklists of the World. Avibase. Retrieved 27 August 2021.
+Clements, James F. (2000). Birds of the World: A Checklist. Cornell University Press. p. 880. ISBN 0-934797-16-1.

@@ -11,6 +11,10 @@ packages = [
     { include = "voice_for_nature_backend", from = "src"}
 ]
 
+include = [
+    "data/*",
+]
+
 [tool.poetry.urls]
 
 [tool.poetry.dependencies]
