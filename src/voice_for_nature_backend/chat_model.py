@@ -1,6 +1,9 @@
 from typing import List
 from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
 from llama_index.core.schema import Document
+from llama_index.core import Settings
+from llama_index.llms.ollama import Ollama
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from . import __path__
 
 
@@ -42,3 +45,32 @@ def create_index(documents: List[Document]) -> VectorStoreIndex:
         documents,
     )
     return index
+
+
+def setup_llm(
+    llm_model_id: str = "llama3",
+    embedding_model_id: str = "BAAI/bge-base-en-v1.5",
+    cache_dir: str = None,
+):
+    """Setup the LLM and embedding model.
+
+    Parameters
+    ----------
+    llm_model_id : str, optional, default is "llama3".
+        LLM model id
+    embedding_model_id : str, optional, default is "BAAI/bge-base-en-v1.5".
+        Embedding model id
+    cache_dir : str, optional, default is None.
+        Cache directory for the embedding model
+
+    Returns
+    -------
+    None
+    """
+    # bge-base embedding model
+    Settings.embed_model = HuggingFaceEmbedding(
+        model_name=embedding_model_id, cache_folder=cache_dir
+    )
+
+    # ollama
+    Settings.llm = Ollama(model=llm_model_id, request_timeout=360.0)
