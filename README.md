@@ -24,6 +24,11 @@ to install both the dev and analysis dependencies
 poetry install --only=dev,analysis
 ```
 
+## Run the Web application
+```bash
+poetry run streamlit run src\voice_for_nature_backend\app.py
+```
+
 # eBird API
 
 ## Get API Key
