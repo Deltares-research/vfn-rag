@@ -44,7 +44,7 @@ def get_ollama_llm(model_id: str = "llama3"):
 
 
 def get_hugging_face_embedding(
-    model_name: str = "BAAI/bge-base-en-v1.5", cache_folder: str = None
+    model_name: str = "BAAI/bge-small-en-v1.5", cache_folder: str = None
 ) -> HuggingFaceEmbedding:
     """
 
@@ -53,17 +53,23 @@ def get_hugging_face_embedding(
     model_name: str, optional, default is "BAAI/bge-base-en-v1.5"
         Name of the hugging face embedding model.
     cache_folder: str, optional, default is None
-        Folder to cache the model.
+        Folder to cache the model. If not provided the function will search for
+        - `LLAMA_INDEX_CACHE_DIR` in your environment variables.
+        - `~/tmp/llama_index` if your OS is Linux.
+        - `~/Library/Caches/llama_index` if your OS is MacOS.
+        - `~/AppData/Local/llama_index` if your OS is Windows.
 
     Returns
     -------
     HuggingFaceEmbedding
         The hugging face embedding model.
     """
-    if cache_folder is None:
-        cache_folder = os.path.join(__path__[0], "models")
-        if not os.path.exists(cache_folder):
-            os.makedirs(cache_folder)
+    try:
+        from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+    except ImportError:
+        raise ImportError(
+            "Please install the `llama-index-embeddings-huggingface` package to use the Hugging Face embedding model."
+        )
 
     embedding = HuggingFaceEmbedding(model_name=model_name, cache_folder=cache_folder)
     return embedding

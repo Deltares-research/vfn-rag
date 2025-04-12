@@ -1,4 +1,5 @@
 import pytest
+from unittest.mock import MagicMock, patch
 from llama_index.llms.ollama import Ollama
 from llm_rag.utils.models import (
     get_ollama_llm,
@@ -31,6 +32,6 @@ def test_azure_open_ai():
 def test_embedding():
     model = get_hugging_face_embedding()
     assert isinstance(model, HuggingFaceEmbedding)
-    assert model.model_name == "BAAI/bge-base-en-v1.5"
+    assert model.model_name == "BAAI/bge-small-en-v1.5"
     assert model.cache_folder is None
     assert model.max_length == 512

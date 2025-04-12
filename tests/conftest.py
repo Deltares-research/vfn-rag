@@ -1,7 +1,12 @@
 import pytest
 from llama_index.core.schema import Document, TextNode
 from llama_index.core import StorageContext
+from llama_index.core import Settings
+from llama_index.core.embeddings.mock_embed_model import MockEmbedding
+from llama_index.core.llms import MockLLM
 
+Settings.embed_model = MockEmbedding(embed_dim=768)
+Settings.llm = MockLLM()
 
 @pytest.fixture()
 def document() -> Document:

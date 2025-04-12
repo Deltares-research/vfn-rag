@@ -19,11 +19,9 @@ from llama_index.core.extractors import (
     SummaryExtractor,
 )
 from llama_index.core.ingestion import IngestionPipeline
-from llm_rag.utils.config_loader import ConfigLoader
 from llm_rag.utils.helper_functions import generate_content_hash
 from llm_rag.utils.errors import StorageNotFoundError
 
-ConfigLoader()
 
 EXTRACTORS = dict(
     text_splitter=TokenTextSplitter,
