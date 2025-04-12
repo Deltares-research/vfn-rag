@@ -3,7 +3,6 @@ site_description: large language model work
 site_url: https://Deltares-research.github.io//llm-rag/
 repo_url: https://github.com//Deltares-research/llm-rag/
 repo_name: /Deltares-research/llm-rag/
-docs_dir: docs/mkdocs
 theme:
   name: material
   language: en
