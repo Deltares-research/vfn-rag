@@ -38,8 +38,8 @@ jobs:
           poetry install --with main,docs
 
       - name: Deploy to GitHub Pages (Pull Request)
-#         env:
-#           ACTIONS_DEPLOY_TOKEN: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
+        env:
+          ACTIONS_DEPLOY_TOKEN: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
         run: |
           git config --global user.name '${{ github.actor }}'
           git config --global user.email '${{ github.actor }}@users.noreply.github.com'
