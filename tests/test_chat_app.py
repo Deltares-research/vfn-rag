@@ -1,4 +1,4 @@
-from voice_for_nature_backend.chat_model import get_data
+from llm_rag.chat_model import get_data
 
 
 class TestGetData:
