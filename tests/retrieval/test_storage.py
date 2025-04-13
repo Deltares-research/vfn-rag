@@ -2,7 +2,7 @@ import os
 import pytest
 import pandas as pd
 
-from llm_rag.utils.helper_functions import generate_content_hash
+from dllm_rag.utils.helper_functions import generate_content_hash
 from unittest.mock import patch, MagicMock
 from llama_index.core.schema import Document, TextNode
 from llama_index.core.storage.docstore import SimpleDocumentStore
@@ -11,7 +11,7 @@ from llama_index.core.vector_stores import SimpleVectorStore
 from llama_index.core.graph_stores import SimpleGraphStore
 from llama_index.core import StorageContext
 
-from llm_rag.retrieval.storage import Storage
+from dllm_rag.retrieval.storage import Storage
 
 
 def test_create_simple_storage_context():

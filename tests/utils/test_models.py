@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import MagicMock, patch
 from llama_index.llms.ollama import Ollama
-from llm_rag.utils.models import (
+from dllm_rag.utils.models import (
     get_ollama_llm,
     azure_open_ai,
     get_hugging_face_embedding,

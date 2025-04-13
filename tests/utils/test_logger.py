@@ -1,4 +1,4 @@
-from llm_rag.utils.logger import Logger
+from dllm_rag.utils.logger import Logger
 
 
 def test_create_logger():

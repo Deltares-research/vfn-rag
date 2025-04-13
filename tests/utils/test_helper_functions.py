@@ -1,4 +1,4 @@
-from llm_rag.utils.helper_functions import generate_content_hash, is_sha256
+from dllm_rag.utils.helper_functions import generate_content_hash, is_sha256
 
 
 def test_generate_content_hash():

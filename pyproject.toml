@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "llm-rag"
+name = "dllm-rag"
 version = "0.1.0"
 description = "Overall package"
 authors = ["Mostafa Farrag <mostafa.farrag@deltares.nl>"]

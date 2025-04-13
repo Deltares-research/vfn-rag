@@ -1,7 +1,7 @@
 import pytest
 from llama_index.core import VectorStoreIndex
-from llm_rag.indexing.index_manager import IndexManager
-from llm_rag.retrieval.storage import Storage
+from dllm_rag.indexing.index_manager import IndexManager
+from dllm_rag.retrieval.storage import Storage
 
 
 def test_load_from_empty_storage(storage_path: str):
