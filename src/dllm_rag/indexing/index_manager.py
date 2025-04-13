@@ -1,7 +1,7 @@
 from typing import List
 from llama_index.core.indices.base import BaseIndex
 from llama_index.core import load_indices_from_storage, VectorStoreIndex
-from llm_rag.retrieval.storage import Storage
+from dllm_rag.retrieval.storage import Storage
 
 
 class IndexManager:

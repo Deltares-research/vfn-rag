@@ -4,7 +4,7 @@ from llama_index.llms.azure_openai import AzureOpenAI
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.embeddings.azure_openai import AzureOpenAIEmbedding
 from llama_index.llms.ollama import Ollama
-from llm_rag import __path__
+from dllm_rag import __path__
 
 
 def azure_open_ai(model_id: str = "gpt-4o", engine: str = "4o"):

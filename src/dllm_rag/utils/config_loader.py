@@ -1,6 +1,6 @@
 from typing import Any
 from llama_index.core import Settings
-from llm_rag.utils.models import get_ollama_llm, get_hugging_face_embedding
+from dllm_rag.utils.models import get_ollama_llm, get_hugging_face_embedding
 from llama_index.core.node_parser import SentenceSplitter
 
 

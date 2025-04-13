@@ -19,8 +19,8 @@ from llama_index.core.extractors import (
     SummaryExtractor,
 )
 from llama_index.core.ingestion import IngestionPipeline
-from llm_rag.utils.helper_functions import generate_content_hash
-from llm_rag.utils.errors import StorageNotFoundError
+from dllm_rag.utils.helper_functions import generate_content_hash
+from dllm_rag.utils.errors import StorageNotFoundError
 
 
 EXTRACTORS = dict(
