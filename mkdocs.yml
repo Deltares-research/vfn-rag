@@ -110,13 +110,11 @@ nav:
           - guides/developer-instructions.md
           - guides/pre-commit-hooks.md
           - guides/doctest.md
-#   - API Reference:
-#       - api/bank_lines.md
-#       - api/bank_erosion.md
-#       - api/io.md
-#       - api/cmd.md
-#       - api/kernel.md
-#       - api/plotting.md
+          - guides/testing.md
+  - API Reference:
+      - api/index_manager.md
+#       - api/storage.md
+      - api/utils.md
   - Release Notes: change-log.md
   - License: license.md
 
