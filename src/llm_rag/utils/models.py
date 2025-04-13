@@ -2,6 +2,7 @@ import os
 from warnings import warn
 from llama_index.llms.azure_openai import AzureOpenAI
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.embeddings.azure_openai import AzureOpenAIEmbedding
 from llama_index.llms.ollama import Ollama
 from llm_rag import __path__
 
@@ -73,3 +74,17 @@ def get_hugging_face_embedding(
 
     embedding = HuggingFaceEmbedding(model_name=model_name, cache_folder=cache_folder)
     return embedding
+
+
+def get_azure_open_ai_embedding(model_id: str = "text-embedding-3-large"):
+    endpoint = os.environ["AZURE_EMBEDDING_API_ENDPOINT"]
+    api_key = os.environ["AZURE_OPENAI_API_KEY"]
+    api_version = os.environ["AZURE_OPENAI_API_VERSION"]
+
+    embed_model = AzureOpenAIEmbedding(
+        model="text-embedding-3-large" if model_id is None else model_id,
+        api_key=api_key,
+        azure_endpoint=endpoint,
+        api_version=api_version,
+    )
+    return embed_model
