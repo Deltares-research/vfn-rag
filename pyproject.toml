@@ -15,7 +15,6 @@ packages = [{ include = "llm_rag", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.12,<4"
-llama-utils = { git = "https://github.com/Serapieum-of-alex/llama-utils.git", tag = "0.1.0a1" }
 python-dotenv = "^1.0.1"
 llama-index = "^0.11.19"
 llama-index-llms-ollama = "^0.3.4"
