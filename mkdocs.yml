@@ -1,8 +1,8 @@
 site_name: LLM-RAG
 site_description: large language model work
-site_url: https://Deltares-research.github.io//llm-rag/
-repo_url: https://github.com//Deltares-research/llm-rag/
-repo_name: /Deltares-research/llm-rag/
+site_url: https://Deltares-research.github.io//dllm-rag/
+repo_url: https://github.com//Deltares-research/dllm-rag/
+repo_name: /Deltares-research/dllm-rag/
 theme:
   name: material
   language: en
