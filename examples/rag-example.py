@@ -1,23 +1,22 @@
 from dotenv import load_dotenv
 
-from dllm_rag.retrieval.storage import Storage
-from dllm_rag.indexing.index_manager import IndexManager
-from dllm_rag.utils.config_loader import ConfigLoader
-from dllm_rag.utils.models import azure_open_ai, get_azure_open_ai_embedding
+from vfn_rag.retrieval.storage import Storage
+from vfn_rag.indexing.index_manager import IndexManager
+from vfn_rag.utils.config_loader import ConfigLoader
+from vfn_rag.utils.models import azure_open_ai, get_azure_open_ai_embedding
 load_dotenv()
 
 #%%
 llm = azure_open_ai()
 embedding = get_azure_open_ai_embedding()
 config_loader = ConfigLoader(llm=llm, embedding=embedding)
-storage_path = r"examples\pond\storage"
+storage_path = r"examples/data/storage"
 storage = Storage.load(storage_path)
 index_manager = IndexManager.load_from_storage(storage)
 #%%
-CACHE_DIR = r"C:\MyComputer\llm\models"
 index = index_manager.indexes[-1]
 query_engine = index.as_query_engine()
-user_prompt = "tell me anything about the pond"
+user_prompt = "how is the deltares pond connected to the surrounding area?"
 answer = query_engine.query(user_prompt)
 print(answer.response)
 
