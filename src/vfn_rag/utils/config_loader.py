@@ -1,6 +1,6 @@
 from typing import Any
 from llama_index.core import Settings
-from dllm_rag.utils.models import get_azure_open_ai_embedding, azure_open_ai
+from vfn_rag.utils.models import get_azure_open_ai_embedding, azure_open_ai
 
 
 class ConfigLoader:

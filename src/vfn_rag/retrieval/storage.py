@@ -2,14 +2,14 @@
 
 import os
 from pathlib import Path
-from typing import Sequence, Union, List, Dict
+from typing import Sequence, Union, List
 import pandas as pd
 from llama_index.core.storage.docstore import SimpleDocumentStore, BaseDocumentStore
 from llama_index.core.storage.index_store import SimpleIndexStore
 from llama_index.core.vector_stores import SimpleVectorStore
 from llama_index.core.storage.index_store.types import BaseIndexStore
 from llama_index.core import StorageContext
-from llama_index.core.schema import Document, TextNode, BaseNode
+from llama_index.core.schema import Document, TextNode
 from llama_index.core import SimpleDirectoryReader
 from llama_index.core.node_parser import TokenTextSplitter
 from llama_index.core.extractors import (
@@ -18,9 +18,8 @@ from llama_index.core.extractors import (
     KeywordExtractor,
     SummaryExtractor,
 )
-from llama_index.core.ingestion import IngestionPipeline
-from dllm_rag.utils.helper_functions import generate_content_hash
-from dllm_rag.utils.errors import StorageNotFoundError
+from vfn_rag.utils.helper_functions import generate_content_hash
+from vfn_rag.utils.errors import StorageNotFoundError
 
 
 EXTRACTORS = dict(
