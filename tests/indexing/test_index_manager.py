@@ -1,4 +1,3 @@
-import pytest
 from llama_index.core import VectorStoreIndex
 from vfn_rag.indexing.index_manager import IndexManager
 from vfn_rag.retrieval.storage import Storage
