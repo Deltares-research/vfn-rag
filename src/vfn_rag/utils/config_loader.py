@@ -1,10 +1,6 @@
 from typing import Any
 from llama_index.core import Settings
-from dllm_rag.utils.models import get_ollama_llm, get_hugging_face_embedding
-from llama_index.core.node_parser import SentenceSplitter
-
-
-TEXT_SPLITTER = SentenceSplitter(chunk_size=1024, chunk_overlap=20)
+from dllm_rag.utils.models import get_azure_open_ai_embedding, azure_open_ai
 
 
 class ConfigLoader:
@@ -25,13 +21,12 @@ class ConfigLoader:
             Embedding model to use.
         """
         if llm is None:
-            llm = get_ollama_llm()
+            llm = azure_open_ai()
         if embedding is None:
-            embedding = get_hugging_face_embedding()
+            embedding = get_azure_open_ai_embedding()
 
         Settings.embed_model = embedding
         Settings.llm = llm
-        Settings.text_splitter = TEXT_SPLITTER
         self._settings = Settings
         self._embedding = embedding
         self._llm = llm

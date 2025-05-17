@@ -39,7 +39,6 @@ class Storage:
     def __init__(
         self,
         storage_backend: Union[str, StorageContext] = None,
-        metadata_index: pd.DataFrame = None,
     ):
         """Initialize the Storage.
 
@@ -55,16 +54,6 @@ class Storage:
             )
 
         self._store = storage_backend
-        if isinstance(metadata_index, pd.DataFrame):
-            self._metadata_index = metadata_index
-        elif metadata_index is None:
-            self._metadata_index = create_metadata_index_existing_docs(
-                self._store.docstore.docs
-            )
-        else:
-            raise ValueError(
-                f"Invalid Storage backend: {storage_backend}. Must be a string or StorageContext."
-            )
 
     @classmethod
     def create(cls) -> "Storage":
@@ -119,8 +108,6 @@ class Storage:
         None
         """
         self.store.persist(persist_dir=store_dir)
-        file_path = os.path.join(store_dir, ID_MAPPING_FILE)
-        save_metadata_index(self.metadata_index, file_path)
 
     @classmethod
     def load(cls, store_dir: str) -> "Storage":
@@ -138,13 +125,7 @@ class Storage:
         if not Path(store_dir).exists():
             raise StorageNotFoundError(f"Storage not found at {store_dir}")
         storage = StorageContext.from_defaults(persist_dir=store_dir)
-        metadata_index = read_metadata_index(path=store_dir)
-        return cls(storage, metadata_index)
-
-    @property
-    def metadata_index(self) -> pd.DataFrame:
-        """Get the metadata index."""
-        return self._metadata_index
+        return cls(storage)
 
     def add_documents(
         self,
@@ -191,11 +172,11 @@ class Storage:
                 print(f"Document with ID {doc.node_id} already exists. Skipping.")
 
         # Convert new entries to a DataFrame and append to the existing metadata DataFrame
-        if new_entries:
-            new_entries_df = pd.DataFrame(new_entries)
-            self._metadata_index = pd.concat(
-                [self._metadata_index, new_entries_df], ignore_index=True
-            )
+        # if new_entries:
+        #     new_entries_df = pd.DataFrame(new_entries)
+        #     # self._metadata_index = pd.concat(
+        #     #     [self._metadata_index, new_entries_df], ignore_index=True
+        #     # )
 
     @staticmethod
     def read_documents(
@@ -245,109 +226,3 @@ class Storage:
             doc.doc_id = content_hash
 
         return documents
-
-    def get_nodes_by_file_name(
-        self, file_name: str, exact_match: bool = False
-    ) -> List[BaseNode]:
-        """Get nodes by file name.
-
-        Parameters
-        ----------
-        file_name: str
-            The file name to search for.
-        exact_match: bool, optional, default is False
-            True to search for an exact match, False to search for a partial match.
-
-        Returns
-        -------
-        List[TextNode]
-            The nodes with the specified file name.
-        """
-        if exact_match:
-            doc_ids = self.metadata_index.loc[
-                self.metadata_index["file_name"] == file_name, "doc_id"
-            ].values
-        else:
-            doc_ids = self.metadata_index.loc[
-                self.metadata_index["file_name"].str.contains(file_name, regex=True),
-                "doc_id",
-            ].values
-        docs = self.docstore.get_nodes(doc_ids)
-        return docs
-
-    @staticmethod
-    def extract_info(
-        documents: List[Union[Document, BaseNode]],
-        info: Dict[str, Dict[str, int]] = None,
-    ) -> List[TextNode]:
-        """Extract Info
-
-        Parameters
-        ----------
-        documents: List[Union[Document, BaseNode]]
-            List of documents.
-        info: Union[List[str], str], optional, default is None
-            The information to extract from the documents.
-
-            >>> info = {
-            >>>     "text_splitter": {"separator" : " ", "chunk_size":512, "chunk_overlap":128},
-            >>>     "title": {"nodes": 5} ,
-            >>>     "question_answer": {"questions": 3},
-            >>>     "summary": {"summaries": ["prev", "self"]},
-            >>>     "keyword": {"keywords": 10},
-            >>>     "entity": {"prediction_threshold": 0.5}
-            >>> }
-
-        Returns
-        -------
-        List[TextNode]
-            The extracted nodes.
-            title:
-                the extracted title will be stored in the metadata under the key "document_title".
-            question_answer:
-                the extracted questions will be stored in the metadata under the key "questions_this_excerpt_can_answer".
-            summary:
-                the extracted summaries will be stored in the metadata under the key "summary".
-            keyword:
-                the extracted keywords will be stored in the metadata under the key "keywords".
-            entity:
-                the extracted entities will be stored in the metadata under the key "entities".
-        """
-        info = EXTRACTORS.copy() if info is None else info
-
-        extractors = [
-            EXTRACTORS[key](**val) for key, val in info.items() if key in EXTRACTORS
-        ]
-        pipeline = IngestionPipeline(transformations=extractors)
-
-        nodes = pipeline.run(
-            documents=documents,
-            in_place=True,
-            show_progress=True,
-        )
-        return nodes
-
-
-def read_metadata_index(path: str) -> pd.DataFrame:
-    """Read the ID mapping from a JSON file."""
-    file_path = os.path.join(path, ID_MAPPING_FILE)
-    data = pd.read_csv(file_path, index_col=0)
-    return data
-
-
-def save_metadata_index(data: pd.DataFrame, path: str):
-    """Save the ID mapping to a JSON file."""
-    data.to_csv(path, index=True)
-
-
-def create_metadata_index_existing_docs(docs: Dict[str, BaseNode]):
-    metadata_index = {}
-    i = 0
-    for key, val in docs.items():
-        metadata_index[i] = {
-            "file_name": val.metadata["file_name"],
-            "doc_id": generate_content_hash(val.text),
-        }
-        i += 1
-    df = pd.DataFrame.from_dict(metadata_index, orient="index")
-    return df
