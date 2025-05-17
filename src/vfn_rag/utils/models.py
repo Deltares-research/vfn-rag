@@ -25,9 +25,9 @@ def azure_open_ai(model_id: str = "gpt-4o", engine: str = "4o"):
 
 
 def get_azure_open_ai_embedding(model_id: str = "text-embedding-3-large"):
-    endpoint = os.environ["AZURE_EMBEDDING_API_ENDPOINT"]
-    api_key = os.environ["AZURE_OPENAI_API_KEY"]
-    api_version = os.environ["AZURE_OPENAI_API_VERSION"]
+    endpoint = os.environ.get("AZURE_EMBEDDING_API_ENDPOINT")
+    api_key = os.environ.get("AZURE_OPENAI_API_KEY")
+    api_version = os.environ.get("AZURE_OPENAI_API_VERSION")
 
     embed_model = AzureOpenAIEmbedding(
         model="text-embedding-3-large" if model_id is None else model_id,
