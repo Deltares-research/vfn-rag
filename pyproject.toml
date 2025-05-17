@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "dllm-rag"
+name = "vfn-rag"
 version = "0.1.0"
 description = "Overall package"
 authors = ["Mostafa Farrag <mostafa.farrag@deltares.nl>"]
 license = "Proprietary"
 readme = "README.md"
 keywords = ["llm", "generativeai", "chatbot", "rag", "natural language processing"]
-repository = "https://github.com/Deltares-research/dllm-rag"
+repository = "https://github.com/Deltares-research/vfn-rag"
 
-packages = [{ include = "dllm_rag", from = "src"}]
+packages = [{ include = "vfn_rag", from = "src"}]
 
 
 [tool.poetry.urls]
