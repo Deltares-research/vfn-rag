@@ -58,8 +58,7 @@ class Storage:
     def create(cls) -> "Storage":
         """Create a new instance of the Storage class."""
         storage = cls._create_simple_storage_context()
-        metadata_index = cls._create_metadata_index()
-        return cls(storage, metadata_index)
+        return cls(storage)
 
     @staticmethod
     def _create_simple_storage_context() -> StorageContext:

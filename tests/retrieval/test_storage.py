@@ -1,9 +1,6 @@
 import os
 import pytest
-import pandas as pd
-
-from dllm_rag.utils.helper_functions import generate_content_hash
-from unittest.mock import patch, MagicMock
+from vfn_rag.utils.helper_functions import generate_content_hash
 from llama_index.core.schema import Document, TextNode
 from llama_index.core.storage.docstore import SimpleDocumentStore
 from llama_index.core.storage.index_store import SimpleIndexStore
@@ -11,7 +8,7 @@ from llama_index.core.vector_stores import SimpleVectorStore
 from llama_index.core.graph_stores import SimpleGraphStore
 from llama_index.core import StorageContext
 
-from dllm_rag.retrieval.storage import Storage
+from vfn_rag.retrieval.storage import Storage
 
 
 def test_create_simple_storage_context():
@@ -37,7 +34,6 @@ class TestStorage:
         store = Storage.create()
         assert store is not None, "Storage wasn't created."
         assert isinstance(store.store, StorageContext), "Storage context wasn't created."
-        assert isinstance(store.metadata_index, pd.DataFrame)
         return store
 
     def test_properties(self, test_empty_storage: Storage):
@@ -50,7 +46,6 @@ class TestStorage:
         storage = store._store
         assert isinstance(storage, StorageContext)
         assert isinstance(storage.docstore, SimpleDocumentStore)
-        assert isinstance(store.metadata_index, pd.DataFrame)
         assert len(storage.docstore.docs) == 4
 
     def test_storage_context(self, storage_docstore: StorageContext):
@@ -58,7 +53,6 @@ class TestStorage:
         storage = store._store
         assert isinstance(storage, StorageContext)
         assert isinstance(storage.docstore, SimpleDocumentStore)
-        assert isinstance(store.metadata_index, pd.DataFrame)
         assert len(storage.docstore.docs) == 4
 
     def test_constructor_raise_error(self):
@@ -91,10 +85,6 @@ class TestStorage:
         docstore = test_empty_storage.store.docstore
         assert docstore.get_document(hash_document) == document
         assert docstore.get_document(hash_text_node) == text_node
-        df = test_empty_storage.metadata_index
-        assert df.shape[0] == 2
-        assert df.loc[0, "doc_id"] == hash_document
-        assert df.loc[1, "doc_id"] == hash_text_node
 
     def test_add_duplicated_documents(
         self,
@@ -133,20 +123,6 @@ class TestStorage:
         assert len(test_empty_storage.store.docstore.docs) == 2
         docstore = test_empty_storage.store.docstore
         assert docstore.get_document(hash_text_node) == text_node
-        df = test_empty_storage.metadata_index
-        assert df.loc[:, "file_name"].to_list() == ["node-path", "node-path_1"]
-
-    def test_get_nodes_by_file_name(
-        self,
-        test_empty_storage: Storage,
-        text_node_2: TextNode,
-        text_node: TextNode,
-    ):
-        test_empty_storage.add_documents([text_node, text_node_2])
-        nodes = test_empty_storage.get_nodes_by_file_name("node-")
-        assert nodes == [text_node, text_node_2]
-        nodes = test_empty_storage.get_nodes_by_file_name("node-path", exact_match=True)
-        assert nodes == [text_node]
 
 
 def test_read_documents(data_path: str):
@@ -156,31 +132,3 @@ def test_read_documents(data_path: str):
     assert doc.excluded_embed_metadata_keys == ["file_name"]
     assert doc.excluded_embed_metadata_keys == ["file_name"]
     assert docs[0].doc_id == generate_content_hash(docs[0].text)
-
-
-@patch("llama_index.core.ingestion.IngestionPipeline.run")
-def test_extract_info(mock_pipeline_run, document: Document, text_node: TextNode):
-    documents = [document, text_node]
-
-    # Set up the mock for the pipeline instance
-    mock_pipeline_run.return_value = MagicMock(return_value="mocked_nodes")
-
-    info = {
-        "text_splitter": {"separator": " ", "chunk_size": 512, "chunk_overlap": 128},
-        "title": {"nodes": 5},
-        "question_answer": {"questions": 3},
-        "summary": {"summaries": ["prev", "self"]},
-        "keyword": {"keywords": 10},
-        "entity": {"prediction_threshold": 0.5},
-    }
-    nodes = Storage.extract_info(documents, info)
-
-    # Check if the pipeline.run method was called with expected arguments
-    mock_pipeline_run.assert_called_once_with(
-        documents=documents,
-        in_place=True,
-        show_progress=True,
-        # num_workers=4 (optional if you have it)
-    )
-    assert mock_pipeline_run.call_count == 1
-    assert nodes == mock_pipeline_run.return_value
