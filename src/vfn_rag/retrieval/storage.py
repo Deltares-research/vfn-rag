@@ -10,8 +10,9 @@ from llama_index.core.vector_stores import SimpleVectorStore
 from llama_index.core.storage.index_store.types import BaseIndexStore
 from llama_index.core import StorageContext
 from llama_index.core.schema import Document, TextNode
-from llama_index.core import SimpleDirectoryReader
+from llama_index.core import SimpleDirectoryReader, Settings
 from llama_index.core.node_parser import TokenTextSplitter
+from llama_index.core.node_parser.interface import NodeParser
 from llama_index.core.extractors import (
     TitleExtractor,
     QuestionsAnsweredExtractor,
@@ -20,6 +21,7 @@ from llama_index.core.extractors import (
 )
 from vfn_rag.utils.helper_functions import generate_content_hash
 from vfn_rag.utils.errors import StorageNotFoundError
+from vfn_rag.retrieval.cosmos_storage import CosmosStorageContextFactory
 
 
 EXTRACTORS = dict(
@@ -30,6 +32,12 @@ EXTRACTORS = dict(
     keyword=KeywordExtractor,
 )
 ID_MAPPING_FILE = "metadata_index.csv"
+
+from enum import Enum
+class Database(Enum):
+    COSMOS = "cosmos"
+    POSTGRES = "postgres"
+    LOCAL = "local"
 
 
 class Storage:
@@ -55,8 +63,13 @@ class Storage:
         self._store = storage_backend
 
     @classmethod
-    def create(cls) -> "Storage":
+    def create(cls, database: Database=Database.LOCAL) -> "Storage":
         """Create a new instance of the Storage class."""
+        if (database == Database.COSMOS):
+            storage = CosmosStorageContextFactory(create_container=True).create_storage_context()
+            return cls(storage)
+        elif (database == Database.POSTGRES):
+            raise NotImplementedError("Postgress storage is implemented yet.")
         storage = cls._create_simple_storage_context()
         return cls(storage)
 
@@ -108,7 +121,7 @@ class Storage:
         self.store.persist(persist_dir=store_dir)
 
     @classmethod
-    def load(cls, store_dir: str) -> "Storage":
+    def load(cls, store_dir: str="", database: Database=Database.LOCAL) -> "Storage":
         """Load the store from a directory.
 
         Parameters
@@ -120,9 +133,14 @@ class Storage:
         -------
         None
         """
-        if not Path(store_dir).exists():
-            raise StorageNotFoundError(f"Storage not found at {store_dir}")
-        storage = StorageContext.from_defaults(persist_dir=store_dir)
+        if (database == Database.POSTGRES):
+            raise NotImplementedError("Postgress storage is implemented yet.")
+        elif (database == Database.COSMOS):
+            storage = CosmosStorageContextFactory().create_storage_context()
+        elif (database == Database.LOCAL):
+            if not Path(store_dir).exists():
+                raise StorageNotFoundError(f"Storage not found at {store_dir}")
+            storage = StorageContext.from_defaults(persist_dir=store_dir)
         return cls(storage)
 
     def add_documents(
@@ -182,6 +200,7 @@ class Storage:
         show_progres: bool = False,
         num_workers: int = None,
         recursive: bool = False,
+        node_parser: NodeParser = Settings.node_parser,
         **kwargs,
     ) -> List[Union[Document, TextNode]]:
         """Read documents from a directory.
@@ -222,5 +241,13 @@ class Storage:
             content_hash = generate_content_hash(doc.text)
             # Assign the hash as the doc_id
             doc.doc_id = content_hash
+            # Parse the document into nodes
+            nodes = node_parser.get_nodes_from_documents([doc], show_progress=show_progres)
+            # Add summary to metadata
+            all_summaries = SummaryExtractor().extract(nodes)
+            if len(all_summaries) > 0:
+                doc.metadata["summary"] = all_summaries[0].get("section_summary", "")
+
+
 
         return documents
