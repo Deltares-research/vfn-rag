@@ -3,13 +3,15 @@
 import os
 from pathlib import Path
 from typing import Sequence, Union, List
+from openai import RateLimitError
 import pandas as pd
+from retry import retry
 from llama_index.core.storage.docstore import SimpleDocumentStore, BaseDocumentStore
 from llama_index.core.storage.index_store import SimpleIndexStore
 from llama_index.core.vector_stores import SimpleVectorStore
 from llama_index.core.storage.index_store.types import BaseIndexStore
 from llama_index.core import StorageContext
-from llama_index.core.schema import Document, TextNode
+from llama_index.core.schema import Document, TextNode, BaseNode
 from llama_index.core import SimpleDirectoryReader, Settings
 from llama_index.core.node_parser import TokenTextSplitter
 from llama_index.core.node_parser.interface import NodeParser
@@ -194,6 +196,26 @@ class Storage:
         #     #     [self._metadata_index, new_entries_df], ignore_index=True
         #     # )
 
+    @retry(RateLimitError, tries=2, delay=60)
+    @staticmethod
+    def apply_extractor(nodes: List[BaseNode]) -> List[BaseNode]:
+        """Apply the summary extractor to a list of nodes.
+
+        Parameters
+        ----------
+        nodes: List[Node]
+            The list of nodes to process.
+
+        Returns
+        -------
+        List[Node]
+            The list of processed nodes.
+        """
+        all_summaries = SummaryExtractor().extract(nodes)
+        for node, summary in zip(nodes, all_summaries):
+            node.metadata["summary"] = summary.get("section_summary", "")
+        return nodes
+
     @staticmethod
     def read_documents(
         path: str,
@@ -232,22 +254,18 @@ class Storage:
             show_progress=show_progres, num_workers=num_workers, **kwargs
         )
 
-        for doc in documents:
+        nodes = node_parser.get_nodes_from_documents(documents, show_progress=show_progres)
+        # nodes = Storage.apply_extractor(nodes)
+
+        for node in nodes:
             # exclude the file name from the llm metadata in order to avoid affecting the llm by weird file names
-            doc.excluded_llm_metadata_keys = ["file_name"]
+            node.excluded_llm_metadata_keys = ["file_name"]
             # exclude the file name from the embeddings metadata in order to avoid affecting the llm by weird file names
-            doc.excluded_embed_metadata_keys = ["file_name"]
+            node.excluded_embed_metadata_keys = ["file_name"]
             # Generate a hash based on the document's text content
-            content_hash = generate_content_hash(doc.text)
-            # Assign the hash as the doc_id
-            doc.doc_id = content_hash
-            # Parse the document into nodes
-            nodes = node_parser.get_nodes_from_documents([doc], show_progress=show_progres)
-            # Add summary to metadata
-            all_summaries = SummaryExtractor().extract(nodes)
-            if len(all_summaries) > 0:
-                doc.metadata["summary"] = all_summaries[0].get("section_summary", "")
+            if (node is TextNode):
+                content_hash = generate_content_hash(node.text)
+                # Assign the hash as the doc_id
+                node.doc_id = content_hash
 
-
-
-        return documents
+        return nodes
