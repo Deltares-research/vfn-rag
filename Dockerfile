@@ -18,7 +18,7 @@ RUN poetry config virtualenvs.create false && \
 COPY . .
 
 # Expose port 5000
-EXPOSE 5000
+EXPOSE 80
 
 # Run the application
 CMD ["python", "app.py"]
