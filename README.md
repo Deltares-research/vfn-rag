@@ -38,7 +38,7 @@ poetry run python app.py
 ### Method 2: Using Poetry with uvicorn directly
 ```bash
 # Run with uvicorn for better performance
-poetry run uvicorn app:app --host 0.0.0.0 --port 5000 --reload
+poetry run uvicorn app:app --host 0.0.0.0 --port 80 --reload
 ```
 
 ### Method 3: Using CLI commands
@@ -53,14 +53,14 @@ poetry run vfn-rag query --query "test query"
 
 Once the FastAPI app is running, you can access:
 
-- **API Documentation:** http://localhost:5000/docs
-- **Health Check:** http://localhost:5000/health
-- **Hello World:** http://localhost:5000/hello
-- **Root:** http://localhost:5000/
+- **API Documentation:** http://localhost:80/docs
+- **Health Check:** http://localhost:80/health
+- **Hello World:** http://localhost:80/hello
+- **Root:** http://localhost:80/
 
 
 ### Using browser:
-- Open http://localhost:5000/docs for interactive API documentation
+- Open http://localhost:80/docs for interactive API documentation
 - Click "Try it out" on any endpoint to test it
 
 ## Run with Docker
