@@ -1,7 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
-import os
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -44,7 +43,6 @@ def hello_world():
 def rag_query(request: QueryRequest):
     """RAG query endpoint - placeholder implementation"""
     try:
-        # TODO: Integrate with your existing vfn-rag code
         # For now, return a mock response
         return QueryResponse(
             answer=f"Mock response for query: {request.query}",
