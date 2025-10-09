@@ -4,12 +4,19 @@ from llama_index.llms.azure_openai import AzureOpenAI
 from llama_index.embeddings.azure_openai import AzureOpenAIEmbedding
 
 
-def azure_open_ai():
-    endpoint = os.environ.get("AZURE_OPENAI_BASE")
-    api_key = os.environ.get("AZURE_OPENAI_KEY")
-    api_version = os.environ.get("AZURE_OPENAI_VERSION")
-    engine = os.environ.get("AZURE_OPENAI_DEPLOYMENT_NAME")
-    model = os.environ.get("AZURE_OPENAI_MODEL")
+def azure_open_ai(
+    endpoint: str = None,
+    api_key: str = None,
+    api_version: str = None,
+    deployment_name: str = None,
+    model: str = None,
+    temperature: float = 0.1
+):
+    endpoint = endpoint or os.environ.get("AZURE_OPENAI_BASE")
+    api_key = api_key or os.environ.get("AZURE_OPENAI_KEY")
+    api_version = api_version or os.environ.get("AZURE_OPENAI_VERSION")
+    engine = deployment_name or os.environ.get("AZURE_OPENAI_DEPLOYMENT_NAME")
+    model = model or os.environ.get("AZURE_OPENAI_MODEL")
 
     if endpoint is None or api_key is None or api_version is None or engine is None or model is None:
         warn("Azure OpenAI environment variables are not set.")
@@ -17,7 +24,7 @@ def azure_open_ai():
     llm = AzureOpenAI(
         engine=engine,
         model=model,
-        temperature=0.0,
+        temperature=temperature,
         azure_endpoint=endpoint,
         api_key=api_key,
         api_version=api_version,
