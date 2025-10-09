@@ -225,7 +225,7 @@ class Storage:
         recursive: bool = False,
         node_parser: NodeParser = Settings.node_parser,
         **kwargs,
-    ) -> List[Union[Document, TextNode]]:
+    ) -> List[Union[Document, BaseNode]]:
         """Read documents from a directory.
 
         the `read_documents` method reads documents from a directory and returns a list of documents.
@@ -244,7 +244,7 @@ class Storage:
 
         Returns
         -------
-        Sequence[Union[Document, TextNode]]
+        Sequence[Union[Document, BaseNode]]
             The documents/nodes read from the store.
         """
         if not os.path.exists(path):
@@ -268,9 +268,12 @@ class Storage:
             # exclude the file name from the embeddings metadata in order to avoid affecting the llm by weird file names
             node.excluded_embed_metadata_keys = ["file_name"]
             # Generate a hash based on the document's text content
-            if (node is TextNode):
-                content_hash = generate_content_hash(node.text)
-                # Assign the hash as the doc_id
-                node.doc_id = content_hash
+            try:
+                text = node.text  # type: ignore
+                content_hash = generate_content_hash(text)
+                # Assign the hash as the node_id
+                node.node_id = content_hash
+            except AttributeError:
+                continue # no text to generate hash from, skip this node
 
         return nodes
