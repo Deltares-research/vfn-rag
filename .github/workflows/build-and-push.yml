@@ -2,7 +2,7 @@ name: Build and Push Docker Image
 
 on:
   release:
-    types: [published]
+    types: [created, published]
 
 jobs:
   build-and-push:
@@ -15,35 +15,45 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Build Docker image
-      run: docker build -t ${{ env.IMAGE_NAME }} .
-
-    - name: Show built images
-      run: docker images
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
 
     - name: Get version
       id: get-version
       run: |
         VERSION="${{ github.event.release.tag_name }}"
+        if [ -z "$VERSION" ]; then
+          echo "Error: github.event.release.tag_name is empty"
+          exit 1
+        fi
         echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
         echo "Version: ${VERSION}"
 
-    - name: Tag Docker image
-      run: |
-        docker tag ${{ env.IMAGE_NAME }} ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ steps.get-version.outputs.VERSION }}
-        docker tag ${{ env.IMAGE_NAME }} ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
-
-    - name: Show tagged images
-      run: docker images
+    - name: Extract Docker metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}
+        tags: |
+          type=raw,value=${{ steps.get-version.outputs.VERSION }}
+          type=raw,value=latest
 
     - name: Login to Azure Container Registry
-      run: |
-        docker login ${{ env.REGISTRY_URL }} -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{ env.REGISTRY_URL }}
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
 
-    - name: Push images to Azure Container Registry
-      run: |
-        docker push ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ steps.get-version.outputs.VERSION }}
-        docker push ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        platforms: linux/amd64
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
 
     - name: Show pushed images
       run: |
