@@ -131,4 +131,4 @@ def test_read_documents(data_path: str):
     doc = docs[0]
     assert doc.excluded_embed_metadata_keys == ["file_name"]
     assert doc.excluded_embed_metadata_keys == ["file_name"]
-    assert docs[0].doc_id == generate_content_hash(docs[0].text)
+    assert docs[0].node_id == generate_content_hash(docs[0].text)

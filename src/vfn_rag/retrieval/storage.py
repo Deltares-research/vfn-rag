@@ -273,7 +273,6 @@ class Storage:
                 content_hash = generate_content_hash(text)
                 # Assign the hash as the node_id
                 node.node_id = content_hash
-                node.doc_id = content_hash
             except AttributeError:
                 continue # no text to generate hash from, skip this node
 
