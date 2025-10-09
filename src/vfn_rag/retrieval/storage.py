@@ -21,6 +21,7 @@ from llama_index.core.extractors import (
     KeywordExtractor,
     SummaryExtractor,
 )
+from llama_index.readers.file import PDFReader
 from vfn_rag.utils.helper_functions import generate_content_hash
 from vfn_rag.utils.errors import StorageNotFoundError
 from vfn_rag.retrieval.cosmos_storage import CosmosStorageContextFactory
@@ -249,7 +250,11 @@ class Storage:
         if not os.path.exists(path):
             raise FileNotFoundError(f"Directory not found: {path}")
 
-        reader = SimpleDirectoryReader(path, recursive=recursive, **kwargs)
+        pdf_reader = PDFReader(return_full_document=True)
+        reader = SimpleDirectoryReader(path, 
+                                       recursive=recursive, 
+                                       file_extractor={".pdf": pdf_reader}, 
+                                       **kwargs)
         documents = reader.load_data(
             show_progress=show_progres, num_workers=num_workers, **kwargs
         )

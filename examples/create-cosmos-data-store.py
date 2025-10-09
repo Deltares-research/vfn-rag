@@ -11,7 +11,7 @@ llm = azure_open_ai()
 embedding = get_azure_open_ai_embedding()
 config = ConfigLoader(llm=llm, embedding=embedding)
 config.set_custom_node_parser(sentence_splitter=True, 
-                              chunk_size=5, 
+                              chunk_size=512, 
                               chunk_overlap=10)
 #%%
 storage = Storage.create(database=Database.COSMOS)
