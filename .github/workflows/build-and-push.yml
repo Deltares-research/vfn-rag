@@ -1,0 +1,52 @@
+name: Build and Push Docker Image
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    env:
+      REGISTRY_URL: waddencr.azurecr.io 
+      IMAGE_NAME: vfn-rag
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build Docker image
+      run: docker build -t ${{ env.IMAGE_NAME }} .
+
+    - name: Show built images
+      run: docker images
+
+    - name: Get version
+      id: get-version
+      run: |
+        VERSION="${{ github.event.release.tag_name }}"
+        echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
+        echo "Version: ${VERSION}"
+
+    - name: Tag Docker image
+      run: |
+        docker tag ${{ env.IMAGE_NAME }} ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ steps.get-version.outputs.VERSION }}
+        docker tag ${{ env.IMAGE_NAME }} ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
+
+    - name: Show tagged images
+      run: docker images
+
+    - name: Login to Azure Container Registry
+      run: |
+        docker login ${{ env.REGISTRY_URL }} -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
+
+    - name: Push images to Azure Container Registry
+      run: |
+        docker push ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ steps.get-version.outputs.VERSION }}
+        docker push ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
+
+    - name: Show pushed images
+      run: |
+        echo "Successfully pushed:"
+        echo "- ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ steps.get-version.outputs.VERSION }}"
+        echo "- ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest"
