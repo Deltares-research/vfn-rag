@@ -17,7 +17,7 @@ RUN poetry config virtualenvs.create false && \
 # Copy application code
 COPY . .
 
-# Expose port 5000
+# Expose port 80
 EXPOSE 80
 
 # Run the application
