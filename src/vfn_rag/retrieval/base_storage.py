@@ -22,7 +22,7 @@ class BaseStorage(ABC):
         """
         if not isinstance(storage_backend, StorageContext):
             raise ValueError(
-                "Storage class should be instantiated using StorageContext object, given: {storage_backend}"
+                f"Storage class should be instantiated using StorageContext object, given: {storage_backend}"
             )
 
         self._store = storage_backend
