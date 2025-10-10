@@ -12,10 +12,12 @@ create_storage_context method returns a `StorageContext` configured with an
 
 from typing import Optional, Dict, Any
 import os
-
+from vfn_rag.retrieval.base_storage import BaseStorage
 from azure.cosmos import CosmosClient, PartitionKey
 from llama_index.vector_stores.azurecosmosnosql import AzureCosmosDBNoSqlVectorSearch
 from llama_index.core import StorageContext
+
+
 CONTAINER_PROPERTIES = {"partition_key": PartitionKey(path="/id")}
 VectorEmbeddingPolicy = {
     "vectorEmbeddings": [
@@ -35,7 +37,11 @@ INDEXING_POLICY = {
     "vectorIndexes": [{"path": "/embedding", "type": "quantizedFlat"}],
 }
 
-class Cosmos:
+
+__all__ = ["Cosmos"]
+
+
+class Cosmos(BaseStorage):
     """Factory to create a StorageContext using Azure Cosmos DB NoSQL.
 
     Example:
@@ -103,6 +109,7 @@ class Cosmos:
             init_kwargs["container_name"] = self.container_name
 
         store = AzureCosmosDBNoSqlVectorSearch(**init_kwargs)
-
-        return StorageContext.from_defaults(vector_store=store)
+        storage = StorageContext.from_defaults(vector_store=store)
+        self._store = store
+        return storage
 
