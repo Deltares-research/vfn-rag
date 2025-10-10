@@ -41,18 +41,12 @@ class Storage(BaseStorage):
     ):
         """Initialize the Storage.
 
-        Parameters
-        ----------
-        storage_backend: str, optional, default=None
+        Args:
+        storage_backend (str, optional):
             The desired vector Storage backend (e.g., Qdrant, FAISS). If none is provided, a simple Storage context
-            will be created.
+            will be created. default=None.
         """
-        if not isinstance(storage_backend, StorageContext):
-            raise ValueError(
-                "Storage class should be instantiated using StorageContext object, given: {storage_backend}"
-            )
-
-        self._store = storage_backend
+        super().__init__(storage_backend)
 
     @classmethod
     def create(cls) -> "Storage":
@@ -105,6 +99,7 @@ class Storage(BaseStorage):
         """
         if not Path(store_dir).exists():
             raise StorageNotFoundError(f"Storage not found at {store_dir}")
+
         storage = StorageContext.from_defaults(persist_dir=store_dir)
         return cls(storage)
 

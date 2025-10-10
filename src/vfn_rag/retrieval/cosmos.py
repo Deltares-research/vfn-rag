@@ -76,8 +76,8 @@ class Cosmos(BaseStorage):
         storage: StorageContext,
         client: CosmosClient,
     ) -> None:
-        self._store = storage
         self.client = client
+        super().__init__(storage)
 
     @classmethod
     def create(
