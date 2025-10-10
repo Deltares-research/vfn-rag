@@ -61,18 +61,28 @@ class Cosmos(BaseStorage):
 
     def __init__(
         self,
-        cosmos_client: Optional[CosmosClient] = None,
+        storage: StorageContext,
+        client: CosmosClient,
+    ) -> None:
+        self._store = storage
+        self.client = client
+
+    @classmethod
+    def create(
+        cls,
+        database_name: str,
+        container_name: str,
+        client: Optional[CosmosClient] = None,
         uri: Optional[str] = None,
         key: Optional[str] = None,
         indexing_policy: Optional[Dict[str, Any]] = None,
         vector_embedding_policy: Optional[Dict[str, Any]] = None,
         cosmos_container_properties: Optional[Dict[str, Any]] = None,
         cosmos_database_properties: Optional[Dict[str, Any]] = None,
-        database_name: Optional[str] = None,
-        container_name: Optional[str] = None,
-        create_container: bool = False,
-    ) -> None:
-        if cosmos_client is None:
+    ) -> "Cosmos":
+        """Create and return a StorageContext configured with the Cosmos vector store."""
+
+        if client is None:
             if uri is None:
                 uri = os.environ.get("AZURE_COSMOSDB_URI")
             if key is None:
@@ -80,36 +90,23 @@ class Cosmos(BaseStorage):
             if uri is None or key is None:
                 raise ValueError("Either cosmos_client or both uri and key must be provided")
 
-            cosmos_client = CosmosClient(uri, credential=key)
+            client = CosmosClient(uri, credential=key)
 
-        self.cosmos_client = cosmos_client
-        self.indexing_policy = indexing_policy or INDEXING_POLICY
-        self.vector_embedding_policy = vector_embedding_policy or VectorEmbeddingPolicy
-        self.cosmos_container_properties = cosmos_container_properties or CONTAINER_PROPERTIES
-        self.cosmos_database_properties = cosmos_database_properties or {}
-
-        # when connecting to an existing deployment we usually don't want to create
-        self.database_name = database_name
-        self.container_name = container_name
-        self.create_container = create_container
-
-    def create(self) -> StorageContext:
-        """Create and return a StorageContext configured with the Cosmos vector store."""
         init_kwargs: Dict[str, Any] = {
-            "cosmos_client": self.cosmos_client,
-            "vector_embedding_policy": self.vector_embedding_policy,
-            "indexing_policy": self.indexing_policy,
-            "cosmos_container_properties": self.cosmos_container_properties,
-            "cosmos_database_properties": self.cosmos_database_properties,
-            "create_container": self.create_container,
+            "cosmos_client": client,
+            "database_name": database_name,
+            "container_name": container_name,
+            "vector_embedding_policy": vector_embedding_policy or VectorEmbeddingPolicy,
+            "indexing_policy": indexing_policy or INDEXING_POLICY,
+            "cosmos_container_properties": cosmos_container_properties or CONTAINER_PROPERTIES,
+            "cosmos_database_properties": cosmos_database_properties or {},
+            "create_container": True,
         }
-        if self.database_name is not None:
-            init_kwargs["database_name"] = self.database_name
-        if self.container_name is not None:
-            init_kwargs["container_name"] = self.container_name
 
         store = AzureCosmosDBNoSqlVectorSearch(**init_kwargs)
         storage = StorageContext.from_defaults(vector_store=store)
-        self._store = store
-        return storage
+
+        return cls(storage, client)
+
+
 
