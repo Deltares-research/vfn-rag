@@ -24,5 +24,3 @@ index_manager = IndexManager.create_from_storage(storage)
 storage.save(storage_dir)
 
 
-#
-
