@@ -28,15 +28,15 @@ class BaseStorage(ABC):
         self._store = storage_backend
 
     @abstractmethod
-    def create(self) -> StorageContext:
+    def create(self, *args, **kwargs) -> StorageContext:
         """Create the storage."""
         pass
 
-    def save(self, store_dir: str):
+    def save(self, *args, **kwargs):
         """Save the storage."""
         pass
 
-    def load(self, store_dir: str):
+    def load(self, *args, **kwargs):
         """Load the storage."""
         pass
 
