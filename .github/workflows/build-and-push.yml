@@ -30,23 +30,17 @@ jobs:
         fi
         echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
         echo "Version: ${VERSION}"
-
     - name: Tag Docker image
       run: |
         docker tag ${{ env.IMAGE_NAME }} ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ steps.get-version.outputs.VERSION }}
         docker tag ${{ env.IMAGE_NAME }} ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
-
-
-
     - name: Login to Azure Container Registry
       run: |
         docker login ${{ env.REGISTRY_URL }} -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
-
     - name: Push images to Azure Container Registry
       run: |
         docker push ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ steps.get-version.outputs.VERSION }}
         docker push ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
-
     - name: Show pushed images
       run: |
         echo "Successfully pushed:"
