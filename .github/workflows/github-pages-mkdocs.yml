@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-      - develop 
+      - develop
+  workflow_dispatch:  # Allow manual triggering from GitHub Actions tab 
 
 jobs:
   deploy:
