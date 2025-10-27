@@ -1,13 +1,16 @@
 name: Deploy MkDocs
 
 on:
-  pull_request:
+  push:
     branches:
-      - '**' 
+      - main
+      - develop 
 
 jobs:
-  deploy-pr:
+  deploy:
       runs-on: ubuntu-latest
+      permissions:
+        contents: write
       steps:
       - uses: actions/checkout@v4
         with:
@@ -30,7 +33,7 @@ jobs:
         run: |
           poetry install --with docs
 
-      - name: Deploy to GitHub Pages (Pull Request)
+      - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
