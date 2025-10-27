@@ -33,15 +33,15 @@ print("Document ID:", documents[0].doc_id)
 client = CosmosClient(COSMOS_URI, credential=COSMOS_KEY)
 database_name = "vectorSearchDB"
 container_name = "vectorSearchContainer"
+
+
 storage_context = Cosmos.load(
     database_name, container_name, client
 )
 store = storage_context.store
-#%% already exist vector store
-index = VectorStoreIndex.from_vector_store(store, embed_model=embed_model)
 #%% create index
 index = VectorStoreIndex.from_documents(
-    documents, storage_context=storage_context
+    documents, storage_context=store
 )
 #%% md
 # Query the index
