@@ -15,8 +15,13 @@ import os
 from vfn_rag.retrieval.base_storage import BaseStorage
 from azure.cosmos import CosmosClient, PartitionKey
 from llama_index.vector_stores.azurecosmosnosql import AzureCosmosDBNoSqlVectorSearch
-from llama_index.core import StorageContext
+from llama_index.core import StorageContext, SimpleDirectoryReader
+from llama_index.core.ingestion import IngestionPipeline
+from llama_index.core.storage.docstore import SimpleDocumentStore
 
+from llama_index.readers.file import PDFReader
+
+from vfn_rag.utils.config_loader import ConfigLoader
 
 CONTAINER_PROPERTIES = {"partition_key": PartitionKey(path="/id")}
 VectorEmbeddingPolicy = {
@@ -77,6 +82,7 @@ class Cosmos(BaseStorage):
         client: CosmosClient,
     ) -> None:
         self.client = client
+        self.pipeline = None
         super().__init__(storage)
 
     @classmethod
@@ -145,3 +151,60 @@ class Cosmos(BaseStorage):
         store = AzureCosmosDBNoSqlVectorSearch(**init_kwargs)
         storage = StorageContext.from_defaults(vector_store=store)
         return storage
+
+    def setup_chunking_pipeline(
+            self,
+            path: str,
+            config: ConfigLoader,
+            show_progress: bool = False,
+            **kwargs
+    ) -> None:
+        """
+        Sets up the chunking and ingestion pipeline for processing documents in a specified directory.
+        This method initializes a document reader for the given path, loads documents (including PDFs),
+        and constructs an ingestion pipeline with specified transformations and embedding models.
+        The pipeline is stored in the instance for later use.
+        Args:
+            path (str): Path to the directory containing documents to process.
+            config (ConfigLoader): Configuration object containing settings for node parsing and embedding.
+            show_progress (bool, optional): Whether to display progress during document loading. Defaults to False.
+            **kwargs: Additional keyword arguments passed to the document reader and loader.
+        Raises:
+            FileNotFoundError: If the specified directory does not exist.
+        """
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"Directory not found: {path}")
+
+        pdf_reader = PDFReader(return_full_document=True)
+        reader = SimpleDirectoryReader(path, 
+                                       file_extractor={".pdf": pdf_reader}, 
+                                       filename_as_id=True,
+                                       **kwargs)
+        documents = reader.load_data(
+            show_progress=show_progress, **kwargs
+        )
+
+        pipeline = IngestionPipeline(
+            transformations=[
+                config.settings.node_parser,
+                # here add any extractors wanted
+                config.settings.embed_model
+            ],
+            vector_store=self.store.vector_store,
+            documents=documents,
+            docstore=SimpleDocumentStore() # used to remove duplicate inputs
+        )
+        self.pipeline = pipeline
+
+    def run_pipeline(self, show_progress: bool = False) -> None:
+        """
+        Executes the ingestion pipeline if it has been set up.
+        Args:
+            show_progress (bool, optional): If True, displays a progress indicator during pipeline execution. Defaults to False.
+        Raises:
+            ValueError: If the ingestion pipeline has not been set up prior to calling this method.
+        """
+        if self.pipeline is None:
+            raise ValueError("Ingestion pipeline not set up. Call setup_chunking_pipeline first.")
+        
+        self.pipeline.run(show_progress=show_progress)
