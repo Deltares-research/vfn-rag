@@ -4,10 +4,9 @@ import os
 from pathlib import Path
 from typing import Sequence, Union, List
 import pandas as pd
-from llama_index.core.storage.docstore import SimpleDocumentStore, BaseDocumentStore
+from llama_index.core.storage.docstore import SimpleDocumentStore
 from llama_index.core.storage.index_store import SimpleIndexStore
 from llama_index.core.vector_stores import SimpleVectorStore
-from llama_index.core.storage.index_store.types import BaseIndexStore
 from llama_index.core import StorageContext
 from llama_index.core.schema import Document, TextNode
 from llama_index.core import SimpleDirectoryReader
@@ -18,6 +17,7 @@ from llama_index.core.extractors import (
     KeywordExtractor,
     SummaryExtractor,
 )
+from vfn_rag.retrieval.base_storage import BaseStorage
 from vfn_rag.utils.helper_functions import generate_content_hash
 from vfn_rag.utils.errors import StorageNotFoundError
 
@@ -32,7 +32,7 @@ EXTRACTORS = dict(
 ID_MAPPING_FILE = "metadata_index.csv"
 
 
-class Storage:
+class Storage(BaseStorage):
     """A class to manage vector Storage and retrieval."""
 
     def __init__(
@@ -41,18 +41,12 @@ class Storage:
     ):
         """Initialize the Storage.
 
-        Parameters
-        ----------
-        storage_backend: str, optional, default=None
+        Args:
+        storage_backend (str, optional):
             The desired vector Storage backend (e.g., Qdrant, FAISS). If none is provided, a simple Storage context
-            will be created.
+            will be created. default=None.
         """
-        if not isinstance(storage_backend, StorageContext):
-            raise ValueError(
-                "Storage class should be instantiated using StorageContext object, given: {storage_backend}"
-            )
-
-        self._store = storage_backend
+        super().__init__(storage_backend)
 
     @classmethod
     def create(cls) -> "Storage":
@@ -75,23 +69,6 @@ class Storage:
         """Create a metadata-based index."""
         return pd.DataFrame(columns=["file_name", "doc_id"])
 
-    @property
-    def store(self) -> StorageContext:
-        """Get the Storage context."""
-        return self._store
-
-    @property
-    def docstore(self) -> BaseDocumentStore:
-        """Get the document store."""
-        return self.store.docstore
-
-    @property
-    def vector_store(self):
-        return self.store.vector_store
-
-    @property
-    def index_store(self) -> BaseIndexStore:
-        return self.store.index_store
 
     def save(self, store_dir: str):
         """Save the store to a directory.
@@ -122,6 +99,7 @@ class Storage:
         """
         if not Path(store_dir).exists():
             raise StorageNotFoundError(f"Storage not found at {store_dir}")
+
         storage = StorageContext.from_defaults(persist_dir=store_dir)
         return cls(storage)
 

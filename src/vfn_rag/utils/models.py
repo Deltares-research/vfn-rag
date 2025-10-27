@@ -4,18 +4,27 @@ from llama_index.llms.azure_openai import AzureOpenAI
 from llama_index.embeddings.azure_openai import AzureOpenAIEmbedding
 
 
-def azure_open_ai(model_id: str = "gpt-4o", engine: str = "4o"):
-    endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
-    api_key = os.environ.get("AZURE_OPENAI_API_KEY")
-    api_version = os.environ.get("AZURE_OPENAI_API_VERSION")
+def azure_open_ai(
+    endpoint: str = None,
+    api_key: str = None,
+    api_version: str = None,
+    deployment_name: str = None,
+    model: str = None,
+    temperature: float = 0.1
+):
+    endpoint = endpoint or os.environ.get("AZURE_OPENAI_BASE")
+    api_key = api_key or os.environ.get("AZURE_OPENAI_KEY")
+    api_version = api_version or os.environ.get("AZURE_OPENAI_VERSION")
+    engine = deployment_name or os.environ.get("AZURE_OPENAI_DEPLOYMENT_NAME")
+    model = model or os.environ.get("AZURE_OPENAI_MODEL")
 
-    if endpoint is None or api_key is None or api_version is None:
+    if endpoint is None or api_key is None or api_version is None or engine is None or model is None:
         warn("Azure OpenAI environment variables are not set.")
 
     llm = AzureOpenAI(
-        engine="4o" if engine is None else engine,
-        model="gpt-4o" if model_id is None else model_id,  # o1-preview
-        temperature=0.0,
+        engine=engine,
+        model=model,
+        temperature=temperature,
         azure_endpoint=endpoint,
         api_key=api_key,
         api_version=api_version,
@@ -24,15 +33,27 @@ def azure_open_ai(model_id: str = "gpt-4o", engine: str = "4o"):
     return llm
 
 
-def get_azure_open_ai_embedding(model_id: str = "text-embedding-3-large"):
-    endpoint = os.environ.get("AZURE_EMBEDDING_API_ENDPOINT")
-    api_key = os.environ.get("AZURE_OPENAI_API_KEY")
-    api_version = os.environ.get("AZURE_OPENAI_API_VERSION")
+def get_azure_open_ai_embedding(
+    endpoint: str = None,
+    api_key: str = None,
+    api_version: str = None,
+    deployment_name: str = None,
+    model: str = None,
+):
+    endpoint = endpoint or os.environ.get("AZURE_OPENAI_BASE")
+    api_key = api_key or os.environ.get("AZURE_OPENAI_KEY")
+    api_version = api_version or os.environ.get("AZURE_OPENAI_VERSION")
+    model = model or os.environ.get("AZURE_OPENAI_EMBEDDING_MODEL")
+    deployment_name = deployment_name or os.environ.get("AZURE_EMBED_DEPLOYMENT_NAME")
+
+    if endpoint is None or api_key is None or api_version is None or model is None or deployment_name is None:
+        warn("Azure OpenAI Embedding environment variables are not set.")
 
     embed_model = AzureOpenAIEmbedding(
-        model="text-embedding-3-large" if model_id is None else model_id,
+        model=model,
         api_key=api_key,
         azure_endpoint=endpoint,
         api_version=api_version,
+        deployment_name=deployment_name,
     )
     return embed_model
