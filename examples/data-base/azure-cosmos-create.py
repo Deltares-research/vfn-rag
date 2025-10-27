@@ -28,7 +28,7 @@ documents = SimpleDirectoryReader(
 ).load_data()
 
 print("Document ID:", documents[0].doc_id)
-#%% Create the index
+#%% connect to the cosmos db
 # Here we establish the connection to cosmos db nosql and create a vector store index.
 client = CosmosClient(COSMOS_URI, credential=COSMOS_KEY)
 database_name = "vectorSearchDB"
@@ -50,3 +50,9 @@ index = VectorStoreIndex.from_documents(
 query_engine = index.as_query_engine()
 response = query_engine.query("what is the history of the deltares pond?")
 print(response)
+
+#%%
+# from vfn_rag.indexing.index_manager import IndexManager
+# index_manager = IndexManager.load_from_storage(storage_context)
+#%% already exist vector store
+# index = VectorStoreIndex.from_vector_store(store, embed_model=embed_model)
