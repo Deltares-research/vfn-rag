@@ -47,6 +47,16 @@ safety = "^3.2.8"
 pre-commit = "^4.0.1"
 
 
+[tool.poetry.group.docs.dependencies]
+mkdocs = "*"
+mkdocs-material = "*"
+mkdocstrings = {extras = ["python"], version = "*"}
+pymdown-extensions = "*"
+mkdocs-autorefs = "*"
+mkdocs-table-reader-plugin = "*"
+mike = "*"
+
+
 
 [tool.coverage.report]
 show_missing = true

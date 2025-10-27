@@ -1,0 +1,55 @@
+name: Docs Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:  # Allow manual triggering from GitHub Actions tab 
+
+jobs:
+  deploy:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
+      steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install poetry
+        run: |
+          pip install poetry
+
+      - name: Configure Poetry
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: |
+          poetry install --with docs
+
+      - name: Determine version from branch
+        id: version
+        run: |
+          if [[ "${{ github.ref_name }}" == "main" ]]; then
+            echo "VERSION=main" >> $GITHUB_OUTPUT
+          else
+            echo "VERSION=develop" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name '${{ github.actor }}'
+          git config --global user.email '${{ github.actor }}@users.noreply.github.com'
+
+          poetry run mike deploy --push --update-aliases ${{ steps.version.outputs.VERSION }} latest
+          poetry run mike set-default --push latest
+

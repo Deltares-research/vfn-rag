@@ -1,0 +1,80 @@
+name: Docs Preview
+
+on:
+  pull_request:
+    branches:
+      - '**'  
+  workflow_dispatch:  # Allow manual triggering from GitHub Actions tab
+
+jobs:
+  build-preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install poetry
+        run: |
+          pip install poetry
+
+      - name: Configure Poetry
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: |
+          poetry install --with docs
+
+      - name: Setup git config
+        run: |
+          git config --global user.name '${{ github.actor }}'
+          git config --global user.email '${{ github.actor }}@users.noreply.github.com'
+
+      - name: Deploy preview to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Use PR number if available, otherwise use branch name
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            VERSION="pr-${{ github.event.pull_request.number }}"
+          else
+            VERSION="${{ github.ref_name }}"
+          fi
+          
+          poetry run mike deploy --push --update-aliases $VERSION latest
+          
+          # Don't set default for PR previews
+          if [[ "${{ github.event_name }}" != "pull_request" ]]; then
+            poetry run mike set-default --push latest
+          fi
+
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        if: github.event_name == 'pull_request'
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const comment = `## Documentation Preview Deployed!
+            
+            Your documentation has been deployed to GitHub Pages for this PR.
+            
+            **View preview:** https://${context.repo.owner}.github.io/${context.repo.repo}/pr-${prNumber}/
+            
+            **Note:** This is a preview deployment. The documentation will be updated on the main site once this PR is merged.`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
