@@ -1,0 +1,116 @@
+site_name: VFN-RAG
+site_description: RAG (Retrieval-Augmented Generation) for Voice for Nature
+site_url: https://deltares-research.github.io/vfn-rag/
+repo_url: https://github.com/Deltares-research/vfn-rag
+repo_name: Deltares-research/vfn-rag
+docs_dir: docs/mkdocs
+theme:
+  name: material
+  language: en
+  features:
+  - announce.dismiss
+  - content.action.edit
+  - content.action.view
+  - content.code.annotate
+  - content.code.copy
+  - content.tooltips
+  - navigation.footer
+  - navigation.indexes
+  - navigation.sections
+  - navigation.tabs
+  - navigation.tabs.sticky
+  - navigation.top
+  - search.highlight
+  - search.suggest
+  - toc.follow
+  palette:
+  - media: "(prefers-color-scheme)"
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to light mode
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: teal
+    accent: purple
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: black
+    accent: lime
+    toggle:
+      icon: material/weather-night
+      name: Switch to system preference
+
+use_directory_urls: false
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            show_root_toc_entry: false
+            show_source: true
+            show_signature_annotations: true
+            heading_level: 3
+            show_category_heading: false
+            group_by_category: false
+          selection:
+            inherited_members: false
+          options:
+            show_root_heading: true
+            show_signature_annotations: true
+            docstring_style: google
+  - table-reader
+  - mike:
+      alias_type: symlink
+      redirect_template: null
+      deploy_prefix: ''
+      canonical_version: null
+      version_selector: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: "#"
+      toc_depth: 1-4
+      anchorlink: true
+
+nav:
+  - Home: index.md
+  - How-to:
+      - Installation: guides/installation.md
+      - Getting Started: guides/getting-started.md
+      - Examples: guides/examples.md
+      - Contributing: guides/contributing.md
+      - Developer Instructions: guides/developer-instructions.md
+      - Pre-Commit Hooks: guides/pre-commit-hooks.md
+      - Testing: guides/testing.md
+  - Architecture Design:
+      - architecture-design/architecture.md
+  - API Reference:
+      - api/app.md
+      - api/cli.md
+      - api/storage.md
+      - api/indexing.md
+      - api/vision.md
+      - Utils:
+          - api/utils/config_loader.md
+          - api/utils/models.md
+          - api/utils/helper_functions.md
+          - api/utils/errors.md
+  - Release Notes: change-log.md
+  - License: license.md
+
+extra:
+  version:
+    provider: mike
+  version_selector: true
