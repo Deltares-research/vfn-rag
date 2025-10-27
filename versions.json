@@ -1,9 +1,14 @@
 [
   {
-    "version": "develop",
-    "title": "develop",
+    "version": "pr-21",
+    "title": "pr-21",
     "aliases": [
       "latest"
     ]
+  },
+  {
+    "version": "develop",
+    "title": "develop",
+    "aliases": []
   }
 ]
