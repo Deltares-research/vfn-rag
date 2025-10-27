@@ -41,10 +41,14 @@ store = storage_context.store
 index = VectorStoreIndex.from_documents(
     documents, storage_context=store
 )
-#%% md
-# Query the index
+#%% Query the index
 # We can now ask questions using our index.
-#%%
+# as a question answering engine
 query_engine = index.as_query_engine()
 response = query_engine.query("what is the history of the deltares pond?")
-print(response)
+print(response.response)
+
+# as a chat engine
+query_engine = index.as_chat_engine()
+response = query_engine.query("what is the history of the deltares pond?")
+print(response.response)
