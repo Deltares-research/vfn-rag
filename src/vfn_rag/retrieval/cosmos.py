@@ -17,7 +17,6 @@ from azure.cosmos import CosmosClient, PartitionKey
 from llama_index.vector_stores.azurecosmosnosql import AzureCosmosDBNoSqlVectorSearch
 from llama_index.core import StorageContext
 
-
 CONTAINER_PROPERTIES = {"partition_key": PartitionKey(path="/id")}
 VectorEmbeddingPolicy = {
     "vectorEmbeddings": [
@@ -77,6 +76,7 @@ class Cosmos(BaseStorage):
         client: CosmosClient,
     ) -> None:
         self.client = client
+        self.pipeline = None
         super().__init__(storage)
 
     @classmethod
@@ -145,3 +145,5 @@ class Cosmos(BaseStorage):
         store = AzureCosmosDBNoSqlVectorSearch(**init_kwargs)
         storage = StorageContext.from_defaults(vector_store=store)
         return storage
+
+    
