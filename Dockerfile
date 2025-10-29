@@ -21,4 +21,4 @@ COPY . .
 EXPOSE 80
 
 # Run the application
-CMD ["python", "app.py"]
+CMD ["python", "api/app.py"]
