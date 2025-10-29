@@ -1,6 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
+from api.api import load_configs
+
+query_engine = load_configs()
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -43,9 +46,10 @@ def hello_world():
 def rag_query(request: QueryRequest):
     """RAG query endpoint - placeholder implementation"""
     try:
+        query_response = query_engine.query(request.query, request.max_results)
         # For now, return a mock response
         return QueryResponse(
-            answer=f"Mock response for query: {request.query}",
+            answer=f"Mock response for query: {query_response.response}",
             sources=["mock_source1.pdf", "mock_source2.txt"],
             query=request.query
         )
