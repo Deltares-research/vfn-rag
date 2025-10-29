@@ -54,40 +54,77 @@ poetry run vfn-rag query --query "test query"
 Once the FastAPI app is running, you can access:
 
 - **API Documentation:** http://localhost:80/docs
-- **Health Check:** http://localhost:80/health
-- **Hello World:** http://localhost:80/hello
-- **Root:** http://localhost:80/
 
-
-### Using browser:
 - Open http://localhost:80/docs for interactive API documentation
 - Click "Try it out" on any endpoint to test it
 
-## Run with Docker
 
-### Build and Run Container
+
+### Prerequisites
+
+Before running with Docker Compose, ensure you have all required environment variables set. You can either:
+
+1. **Create a `.env` file** in the project root with all variables:
+   ```bash
+   # Azure Cosmos DB
+   AZURE_COSMOSDB_URI=your-cosmos-uri
+   AZURE_COSMOSDB_KEY=your-cosmos-key
+   
+   # Azure OpenAI (shared)
+   AZURE_OPENAI_BASE=your-openai-endpoint
+   AZURE_OPENAI_KEY=your-openai-key
+   AZURE_OPENAI_VERSION=your-api-version
+   
+   # Azure OpenAI LLM
+   AZURE_OPENAI_DEPLOYMENT_NAME=your-deployment-name
+   AZURE_OPENAI_MODEL=your-model-name
+   
+   # Azure OpenAI Embeddings
+   AZURE_OPENAI_EMBEDDING_MODEL=your-embedding-model
+   AZURE_EMBED_DEPLOYMENT_NAME=your-embed-deployment-name
+   ```
+
+
+### Build and Run with Docker Compose
+
 ```bash
-# Build the Docker image and run the container
-docker build -t vfn-rag . && docker run -p 80:80 vfn-rag
+# Build and start the container in detached mode
+docker-compose up -d
 ```
 
-### Alternative: Build and Run Separately
-```bash
-# Build the Docker image
-docker build -t vfn-rag .
+### Rebuild After Code Changes
 
-# Run the container
-docker run -p 80:80 vfn-rag
+```bash
+# Rebuild the image and restart containers
+docker-compose up -d --build
 ```
 
-### Test the Container
-Once the container is running, test the endpoints:
-- **API Documentation:** http://localhost:80/docs
-- **Health Check:** http://localhost:80/health
-- **Hello World:** http://localhost:80/hello
 
-### Stop the Container
+### Stop and Remove Containers
+
 ```bash
-# Stop the running container
-docker stop $(docker ps -q --filter ancestor=vfn-rag)
-```
+# Stop containers
+docker-compose down
+
+
+
+### Required Environment Variables
+
+The following environment variables are required for the application to function:
+
+**Azure Cosmos DB:**
+- `AZURE_COSMOSDB_URI` - Your Azure Cosmos DB account URI
+- `AZURE_COSMOSDB_KEY` - Your Azure Cosmos DB account key
+
+**Azure OpenAI:**
+- `AZURE_OPENAI_BASE` - Your Azure OpenAI endpoint
+- `AZURE_OPENAI_KEY` - Your Azure OpenAI API key
+- `AZURE_OPENAI_VERSION` - API version
+
+**Azure OpenAI LLM:**
+- `AZURE_OPENAI_DEPLOYMENT_NAME` - Deployment name for the LLM
+- `AZURE_OPENAI_MODEL` - Model name 
+
+**Azure OpenAI Embeddings:**
+- `AZURE_OPENAI_EMBEDDING_MODEL` - Embedding model name
+- `AZURE_EMBED_DEPLOYMENT_NAME` - Deployment name for embeddings
