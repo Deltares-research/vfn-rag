@@ -2,6 +2,13 @@
 CLI commands for VFN-RAG
 """
 import click
+from dotenv import load_dotenv
+
+# Load environment variables early
+load_dotenv()
+
+from vfn_rag.services.query import process_query
+from vfn_rag.config.entities import ENTITY_MAPPING
 
 
 @click.group()
@@ -19,12 +26,39 @@ def hello(name: str):
 
 @cli.command()
 @click.option('--query', required=True, help='Query to process')
-@click.option('--max-results', default=5, help='Maximum number of results')
-def query(query: str, max_results: int):
-    """Process a RAG query"""
-    click.echo(f"Processing query: {query}")
-    click.echo(f"Max results: {max_results}")
-    click.echo("Mock response: This is a placeholder for RAG functionality")
+@click.option('--entity', required=True, help='Entity to query (e.g., seal, seagrass)')
+def query(query: str, entity: str):
+    """Process a RAG query for a specific entity"""
+    try:
+        # Validate entity
+        if entity not in ENTITY_MAPPING:
+            available = ', '.join(ENTITY_MAPPING.keys())
+            click.echo(f"Error: Unknown entity '{entity}'. Available entities: {available}", err=True)
+            return
+        
+        click.echo(f"Processing query for entity '{entity}': {query}")
+        click.echo("...")
+        
+        # Process query
+        result = process_query(query=query, entity=entity)
+        
+        # Display results
+        click.echo("\n" + "="*60)
+        click.echo("ANSWER:")
+        click.echo("="*60)
+        click.echo(result['answer'])
+        click.echo("\n" + "="*60)
+        click.echo("SOURCES:")
+        click.echo("="*60)
+        if result['sources']:
+            for i, source in enumerate(result['sources'], 1):
+                click.echo(f"{i}. {source}")
+        else:
+            click.echo("No sources found")
+        click.echo("="*60)
+        
+    except Exception as e:
+        click.echo(f"Error processing query: {e}", err=True)
 
 @cli.command()
 def version():
