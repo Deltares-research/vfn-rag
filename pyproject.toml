@@ -2,7 +2,11 @@
 name = "vfn-rag"
 version = "0.2.0"
 description = "Overall package"
-authors = ["Mostafa Farrag <mostafa.farrag@deltares.nl>"]
+authors = [
+    "Mostafa Farrag <mostafa.farrag@deltares.nl>",
+    "Marie-Lou David <marielou.David@deltares.nl>",
+    "Ioanna Micha <Ioanna.Micha@deltares.nl>"
+]
 license = "Proprietary"
 readme = "README.md"
 keywords = ["llm", "generativeai", "chatbot", "rag", "natural language processing"]
