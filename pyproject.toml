@@ -1,17 +1,18 @@
 [tool.poetry]
 name = "vfn-rag"
-version = "0.1.0"
+version = "0.2.0"
 description = "Overall package"
-authors = ["Mostafa Farrag <mostafa.farrag@deltares.nl>"]
+authors = [
+    "Mostafa Farrag <mostafa.farrag@deltares.nl>",
+    "Marie-Lou David <marielou.David@deltares.nl>",
+    "Ioanna Micha <Ioanna.Micha@deltares.nl>"
+]
 license = "Proprietary"
 readme = "README.md"
 keywords = ["llm", "generativeai", "chatbot", "rag", "natural language processing"]
 repository = "https://github.com/Deltares-research/vfn-rag"
 
 packages = [{ include = "vfn_rag", from = "src"}]
-
-[tool.poetry.scripts]
-vfn-rag = "vfn_rag.cli:cli"
 
 
 [tool.poetry.urls]
@@ -20,10 +21,7 @@ vfn-rag = "vfn_rag.cli:cli"
 python = ">=3.12,<4"
 llama-index = "^0.12.36"
 opencv-python = "^4.11.0.86"
-fastapi = "^0.104.1"
-uvicorn = {extras = ["standard"], version = "^0.24.0"}
 pydantic = "^2.5.0"
-click = "^8.1.7"
 
 
 [tool.poetry.group.llm.dependencies]
