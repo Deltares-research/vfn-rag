@@ -40,7 +40,7 @@ config = ConfigLoader(llm, embed_model)
 # which will be processed by the SimpleDirectoryReader.
 
 documents = SimpleDirectoryReader(
-    input_dir=r"../data/pond/"
+    input_dir=r"../data/knowledge-base/"
 ).load_data()
 
 print("Document ID:", documents[0].doc_id)
@@ -59,7 +59,7 @@ storage_context = Postgres.create(
     user=POSTGRES_USER,
     password=POSTGRES_PASSWORD,
     table_name="deltares_vectors",
-    schema_name="public",
+    schema_name="kb",
     embed_dim=3072,  # Dimension for text-embedding-3-large
 )
 

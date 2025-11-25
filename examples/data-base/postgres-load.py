@@ -29,14 +29,13 @@ config = ConfigLoader(llm, embed_model)
 print("Loading vector store from PostgreSQL...")
 
 storage_context = Postgres.load(
-    connection_string="postgresql://postgres:password@localhost:5432/vector_db",
-    # host=POSTGRES_HOST,
+    host=POSTGRES_HOST,
     port=POSTGRES_PORT,
-    # database=POSTGRES_DB,
-    # user=POSTGRES_USER,
-    # password=POSTGRES_PASSWORD,
+    database=POSTGRES_DB,
+    user=POSTGRES_USER,
+    password=POSTGRES_PASSWORD,
     table_name="deltares_vectors",
-    schema_name="public",
+    schema_name="kb",
     embed_dim=3072,  # Must match the dimension used when creating
 )
 
@@ -56,7 +55,7 @@ print("Index loaded successfully!")
 # As a question answering engine
 print("\n--- Question Answering Mode ---")
 query_engine = index.as_query_engine()
-response = query_engine.query("What is the history of the Deltares pond?")
+response = query_engine.query("Summarize the available info")
 print("Response:")
 print(response.response)
 

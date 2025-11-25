@@ -19,6 +19,45 @@ from llama_index.core import StorageContext
 __all__ = ["Postgres"]
 
 
+def create_connection_string(
+    host: Optional[str] = None,
+    port: Optional[int] = None,
+    database: Optional[str] = None,
+    user: Optional[str] = None,
+    password: Optional[str] = None,
+    connection_string: Optional[str] = None,
+) -> str:
+    """Create a PostgreSQL connection string.
+    
+    Args:
+        host: PostgreSQL host
+        port: PostgreSQL port (default: 5432)
+        database: Database name
+        user: Username
+        password: Password
+        connection_string: Direct connection string (overrides other parameters)
+        
+    Returns:
+        PostgreSQL connection string
+    """
+    if connection_string:
+        return connection_string
+    
+    # Try to get from environment if not provided
+    host = host or os.environ.get("POSTGRES_HOST")
+    port = port or int(os.environ.get("POSTGRES_PORT", "5432"))
+    database = database or os.environ.get("POSTGRES_DB")
+    user = user or os.environ.get("POSTGRES_USER")
+    password = password or os.environ.get("POSTGRES_PASSWORD")
+    
+    if not all([host, port, database, user, password]):
+        raise ValueError(
+            "Either connection_string or all of (host, port, database, user, password) must be provided"
+        )
+    
+    return f"postgresql://{user}:{password}@{host}:{port}/{database}"
+
+
 class Postgres(BaseStorage):
     """Factory to create a StorageContext using PostgreSQL with pgvector.
 
@@ -45,7 +84,11 @@ class Postgres(BaseStorage):
     def __init__(
         self,
         storage: StorageContext,
+        connection_string: str,
+        port: int,
     ) -> None:
+        self.connection_string = connection_string
+        self.port = port
         super().__init__(storage)
 
     @classmethod
@@ -58,6 +101,7 @@ class Postgres(BaseStorage):
         database: Optional[str] = None,
         user: Optional[str] = None,
         password: Optional[str] = None,
+        connection_string: Optional[str] = None,
         embed_dim: int = 3072,
         **kwargs: Any,
     ) -> "Postgres":
@@ -67,7 +111,7 @@ class Postgres(BaseStorage):
             table_name: Name of the table to store vectors (default: "vector_store")
             schema_name: PostgreSQL schema name (default: "public")
             host: PostgreSQL host
-            port: PostgreSQL port
+            port: PostgreSQL port (default: 5432)
             database: Database name
             user: Username
             password: Password
@@ -78,32 +122,41 @@ class Postgres(BaseStorage):
         Returns:
             Postgres instance with configured storage context
         """
-
-        storage = cls._base_read_write(
-            table_name=table_name,
-            schema_name=schema_name,
-            embed_dim=embed_dim,
+        # Get port with default
+        port = port or int(os.environ.get("POSTGRES_PORT", "5432"))
+        
+        # Create connection string if not provided
+        conn_str = create_connection_string(
             host=host,
             port=port,
             database=database,
             user=user,
             password=password,
+            connection_string=connection_string,
+        )
+
+        storage = cls._base_read_write(
+            connection_string=conn_str,
+            port=port,
+            table_name=table_name,
+            schema_name=schema_name,
+            embed_dim=embed_dim,
             **kwargs
         )
 
-        return cls(storage)
+        return cls(storage, conn_str, port)
 
     @classmethod
     def load(
         cls,
         table_name: str = "vector_store",
         schema_name: str = "public",
-        connection_string: Optional[str] = None,
         host: Optional[str] = None,
         port: Optional[int] = None,
         database: Optional[str] = None,
         user: Optional[str] = None,
         password: Optional[str] = None,
+        connection_string: Optional[str] = None,
         embed_dim: int = 3072,
         **kwargs: Any,
     ) -> "Postgres":
@@ -113,49 +166,55 @@ class Postgres(BaseStorage):
             table_name: Name of the table containing vectors (default: "vector_store")
             schema_name: PostgreSQL schema name (default: "public")
             host: PostgreSQL host
-            port: PostgreSQL port
+            port: PostgreSQL port (default: 5432)
             database: Database name
             user: Username
             password: Password
+            connection_string: Direct connection string (overrides other parameters)
             embed_dim: Embedding dimension (default: 3072 for text-embedding-3-large)
             **kwargs: Additional arguments passed to PGVectorStore
             
         Returns:
             Postgres instance with loaded storage context
         """
+        # Get port with default
+        port = port or int(os.environ.get("POSTGRES_PORT", "5432"))
+        
+        # Create connection string if not provided
+        conn_str = create_connection_string(
+            host=host,
+            port=port,
+            database=database,
+            user=user,
+            password=password,
+            connection_string=connection_string,
+        )
 
         storage = cls._base_read_write(
+            connection_string=conn_str,
+            port=port,
             table_name=table_name,
             schema_name=schema_name,
             embed_dim=embed_dim,
-            connection_string=connection_string,
-            # host=host,
-            port=port,
-            # database=database,
-            # user=user,
-            # password=password,
             **kwargs
         )
 
-        return cls(storage)
+        return cls(storage, conn_str, port)
 
     @staticmethod
     def _base_read_write(
+        connection_string: str,
+        port: int,
         table_name: str = "vector_store",
         schema_name: str = "public",
         embed_dim: int = 3072,
-        connection_string: Optional[str] = None,
-        host: Optional[str] = None,
-        port: Optional[int] = None,
-        database: Optional[str] = None,
-        user: Optional[str] = None,
-        password: Optional[str] = None,
         **kwargs: Any,
     ) -> StorageContext:
         """Create the base storage context with PostgreSQL vector store.
         
         Args:
             connection_string: PostgreSQL connection string
+            port: PostgreSQL port
             table_name: Name of the table to store vectors
             schema_name: PostgreSQL schema name
             embed_dim: Embedding dimension
@@ -165,15 +224,11 @@ class Postgres(BaseStorage):
             StorageContext configured with PGVectorStore
         """
         init_kwargs: dict[str, Any] = {
+            "connection_string": connection_string,
+            "port": port,
             "table_name": table_name,
             "schema_name": schema_name,
             "embed_dim": embed_dim,
-            "connection_string": connection_string,
-            "host": host,
-            "port": port,
-            "database": database,
-            "user": user,
-            "password": password,
             **kwargs
         }
 
