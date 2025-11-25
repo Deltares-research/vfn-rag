@@ -1,4 +1,5 @@
 from typing import Union
+from typing_extensions import Self
 from abc import ABC, abstractmethod
 from llama_index.core import StorageContext
 from llama_index.core.storage.index_store.types import BaseIndexStore
@@ -27,8 +28,9 @@ class BaseStorage(ABC):
 
         self._store = storage_backend
 
+    @classmethod
     @abstractmethod
-    def create(self, *args, **kwargs) -> StorageContext:
+    def create(cls, *args, **kwargs) -> Self:
         """Create the storage."""
         pass
 
@@ -36,7 +38,9 @@ class BaseStorage(ABC):
         """Save the storage."""
         pass
 
-    def load(self, *args, **kwargs):
+    @classmethod
+    @abstractmethod
+    def load(cls, *args, **kwargs) -> Self:
         """Load the storage."""
         pass
 
