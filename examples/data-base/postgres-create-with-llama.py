@@ -58,7 +58,6 @@ storage_context = Postgres.create(
     database=POSTGRES_DB,
     user=POSTGRES_USER,
     password=POSTGRES_PASSWORD,
-    table_name="vector_store",
     schema_name="kb",
     embed_dim=3072,  # Dimension for text-embedding-3-large
 )
@@ -68,7 +67,8 @@ store = storage_context.store
 #%% Create index
 # Create the vector store index from documents and store in PostgreSQL
 print("Creating vector store index...")
-index = VectorStoreIndex.from_documents(
+#%% Create nodes
+VectorStoreIndex.from_documents(
     documents, storage_context=store, show_progress=True
 )
 print("Index created successfully!")
@@ -79,7 +79,7 @@ print("\nQuerying the index...")
 
 # As a question answering engine
 query_engine = index.as_query_engine()
-response = query_engine.query("What is the history of the Deltares pond?")
+response = query_engine.query("tell me about birds")
 print("\nResponse:")
 print(response.response)
 

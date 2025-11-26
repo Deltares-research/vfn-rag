@@ -18,10 +18,12 @@ POSTGRES_PORT = int(os.getenv("POSTGRES_PORT", "5432"))
 POSTGRES_DB = os.getenv("POSTGRES_DB", "vector_db")
 POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
 POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "password")
+# schema_name = "kb" # schema generated in create-with-llama.py
+schema_name = "raw_schema" # schema used in create-without-llama.py
 
 #%% Setup Azure OpenAI
 llm = azure_open_ai()
-embed_model = get_azure_open_ai_embedding()
+embed_model = get_azure_open_ai_embedding() 
 config = ConfigLoader(llm, embed_model)
 
 #%% Connect to PostgreSQL
@@ -34,8 +36,7 @@ storage_context = Postgres.load(
     database=POSTGRES_DB,
     user=POSTGRES_USER,
     password=POSTGRES_PASSWORD,
-    table_name="deltares_vectors",
-    schema_name="kb",
+    schema_name=schema_name,
     embed_dim=3072,  # Must match the dimension used when creating
 )
 
@@ -55,28 +56,18 @@ print("Index loaded successfully!")
 # As a question answering engine
 print("\n--- Question Answering Mode ---")
 query_engine = index.as_query_engine()
-response = query_engine.query("Summarize the available info")
+response = query_engine.query("what can you say about the Deltares pond history?")
+print("Response:")
+print(response.response if hasattr(response, 'response') else response)
+
+# As a chat engine
+print("\n--- Chat Mode ---")
+chat_engine = index.as_chat_engine()
+response = chat_engine.chat("Tell me about the birds")
 print("Response:")
 print(response.response)
 
-# As a chat engine
-# print("\n--- Chat Mode ---")
-# chat_engine = index.as_chat_engine()
-# response = chat_engine.chat("What is the history of the Deltares pond?")
-# print("Response:")
-# print(response.response)
-
 # # Follow-up question in chat mode
-# response = chat_engine.chat("Tell me more about its significance")
-# print("\nFollow-up Response:")
-# print(response.response)
-
-#%% Advanced: Query with similarity score
-# You can also retrieve nodes with similarity scores
-retriever = index.as_retriever(similarity_top_k=3)
-nodes = retriever.retrieve("Deltares pond history")
-
-print("\n--- Top 3 Similar Nodes ---")
-for i, node in enumerate(nodes, 1):
-    print(f"\nNode {i} (Score: {node.score:.4f}):")
-    print(node.text[:200] + "...")
+response = chat_engine.chat("Tell me more about its significance")
+print("\nFollow-up Response:")
+print(response.response)
