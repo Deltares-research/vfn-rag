@@ -2528,6 +2528,23 @@ llama-index-core = ">=0.12.0,<0.13.0"
 llama-parse = ">=0.5.0"
 
 [[package]]
+name = "llama-index-vector-stores-azurecosmosnosql"
+version = "1.3.1"
+description = "llama-index vector_stores azurecosmosnosql integration"
+optional = false
+python-versions = "<4.0,>=3.9"
+groups = ["llm"]
+files = [
+    {file = "llama_index_vector_stores_azurecosmosnosql-1.3.1-py3-none-any.whl", hash = "sha256:8bb682f1196ca48ac85181cba71f7a764e3210a4f32d1be3d6e33d4d4a1d9c15"},
+    {file = "llama_index_vector_stores_azurecosmosnosql-1.3.1.tar.gz", hash = "sha256:25519fc245db66ce888dbc4536d51b2cef65b3879d1982ae9f632d8de3753ddb"},
+]
+
+[package.dependencies]
+azure-cosmos = ">=4.9.0,<5.0.0"
+azure-identity = ">=1.19.0,<2.0.0"
+llama-index-core = ">=0.12.0,<0.13.0"
+
+[[package]]
 name = "llama-index-vector-stores-postgres"
 version = "0.5.0"
 description = "llama-index vector_stores postgres integration"
@@ -5865,4 +5882,4 @@ propcache = ">=0.2.1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<4"
-content-hash = "47eb618a0656d6c5e748f360959b38583f61e0edaf2cd9041a58624bb524578c"
+content-hash = "7d03d706030f541026edc5430ae0af80bca8c5923462c395eda60342c8841217"
