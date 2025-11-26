@@ -137,19 +137,6 @@ class PostgresManager:
             """
             cur.execute(create_table_sql)
             
-            # Create index on node_id for faster lookups
-            # cur.execute(f"""
-            # CREATE INDEX IF NOT EXISTS {table_name}_node_id_idx 
-            # ON {schema_name}.{table_name} (node_id);
-            # """)
-            
-            # Create vector index for similarity search (HNSW)
-            # cur.execute(f"""
-            # CREATE INDEX IF NOT EXISTS {table_name}_embedding_idx 
-            # ON {schema_name}.{table_name} 
-            # USING hnsw (embedding vector_cosine_ops);
-            # """)
-            
             cur.close()
             print(f"Table {schema_name}.{table_name} created successfully.")
             
@@ -311,3 +298,128 @@ class PostgresManager:
         finally:
             if conn:
                 conn.close()
+    
+    def delete_table(
+        self,
+        table_name: str,
+        schema_name: str = "public",
+        cascade: bool = False,
+    ) -> None:
+        """Delete a table from the database.
+        
+        Args:
+            table_name: Name of the table to delete
+            schema_name: PostgreSQL schema name (default: "public")
+            cascade: If True, automatically drop objects that depend on the table (default: False)
+            
+        Raises:
+            psycopg2.Error: If table deletion fails
+        """
+        conn = None
+        try:
+            conn = psycopg2.connect(self.connection_string)
+            conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+            cur = conn.cursor()
+            
+            cascade_clause = "CASCADE" if cascade else "RESTRICT"
+            drop_sql = f"DROP TABLE IF EXISTS {schema_name}.{table_name} {cascade_clause};"
+            cur.execute(drop_sql)
+            
+            cur.close()
+            print(f"Table {schema_name}.{table_name} deleted successfully.")
+            
+        except psycopg2.Error as e:
+            print(f"Error deleting table: {e}")
+            raise
+        finally:
+            if conn:
+                conn.close()
+    
+    def delete_schema(
+        self,
+        schema_name: str,
+        cascade: bool = False,
+    ) -> None:
+        """Delete a schema from the database.
+        
+        Warning: This will delete all objects within the schema.
+        
+        Args:
+            schema_name: Name of the schema to delete
+            cascade: If True, automatically drop all objects in the schema (default: False)
+            
+        Raises:
+            psycopg2.Error: If schema deletion fails
+        """
+        conn = None
+        try:
+            conn = psycopg2.connect(self.connection_string)
+            conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+            cur = conn.cursor()
+            
+            cascade_clause = "CASCADE" if cascade else "RESTRICT"
+            drop_sql = f"DROP SCHEMA IF EXISTS {schema_name} {cascade_clause};"
+            cur.execute(drop_sql)
+            
+            cur.close()
+            print(f"Schema {schema_name} deleted successfully.")
+            
+        except psycopg2.Error as e:
+            print(f"Error deleting schema: {e}")
+            raise
+        finally:
+            if conn:
+                conn.close()
+    
+    def delete_rows_by_filename(
+        self,
+        filename: str,
+        table_name: str = "data_vector_store",
+        schema_name: str = "public",
+    ) -> int:
+        """Delete all rows from a table where the metadata contains a specific filename.
+        
+        This method deletes rows where the metadata_ JSON column contains
+        a "file_name" property matching the specified filename.
+        
+        Args:
+            filename: The filename to match in the metadata_ JSON column
+            table_name: Name of the table to delete from (default: "data_vector_store")
+            schema_name: PostgreSQL schema name (default: "public")
+            
+        Returns:
+            Number of rows deleted
+            
+        Raises:
+            psycopg2.Error: If deletion fails
+        """
+        conn = None
+        try:
+            conn = psycopg2.connect(self.connection_string)
+            cur = conn.cursor()
+            
+            # Use JSON operator to check if file_name matches
+            delete_sql = f"""
+            DELETE FROM {schema_name}.{table_name}
+            WHERE metadata_->>'file_name' = %s;
+            """
+            
+            cur.execute(delete_sql, (filename,))
+            rows_deleted = cur.rowcount
+            
+            conn.commit()
+            cur.close()
+            
+            print(f"Successfully deleted {rows_deleted} rows with file_name='{filename}' from {schema_name}.{table_name}")
+            
+            return rows_deleted
+            
+        except psycopg2.Error as e:
+            if conn:
+                conn.rollback()
+            print(f"Error deleting rows by filename: {e}")
+            raise
+        finally:
+            if conn:
+                conn.close()
+
