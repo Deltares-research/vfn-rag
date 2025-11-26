@@ -1,4 +1,5 @@
 import os
+from typing import Optional
 from warnings import warn
 from llama_index.llms.azure_openai import AzureOpenAI
 from llama_index.embeddings.azure_openai import AzureOpenAIEmbedding
@@ -39,6 +40,7 @@ def get_azure_open_ai_embedding(
     api_version: str = None,
     deployment_name: str = None,
     model: str = None,
+    dimensions: Optional[int] = None,
 ):
     endpoint = endpoint or os.environ.get("AZURE_OPENAI_BASE")
     api_key = api_key or os.environ.get("AZURE_OPENAI_KEY")
@@ -55,5 +57,6 @@ def get_azure_open_ai_embedding(
         azure_endpoint=endpoint,
         api_version=api_version,
         deployment_name=deployment_name,
+        dimensions=dimensions,
     )
     return embed_model
