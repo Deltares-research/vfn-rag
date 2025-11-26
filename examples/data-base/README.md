@@ -9,7 +9,8 @@ This folder contains examples for using different vector store backends with the
 - `azure-cosmos-load.py` - Load and query an existing Cosmos DB vector store
 
 ### PostgreSQL with pgvector
-- `postgres-create.py` - Create a vector store in PostgreSQL
+- `postgres-create-with-llama.py` - Create a vector store in PostgreSQL, using the llama-index VectoreStoreIndex
+- `postgres-create-without-llama.py` - Create a vector store in PostgreSQL, using the same pipeline as llama-index but explicitly and creating the relevant table from scratch
 - `postgres-load.py` - Load and query an existing PostgreSQL vector store
 
 ## PostgreSQL Setup with Docker
@@ -29,13 +30,19 @@ This folder contains examples for using different vector store backends with the
 
 2. **Run the create script:**
    ```bash
-   python examples/data-base/postgres-create.py
+   python examples/data-base/postgres-create-with-llama.py
    ```
 
 3. **Query the stored data:**
    ```bash
    python examples/data-base/postgres-load.py
    ```
+
+### Consideration when using PostgresManager class to create tables
+When using the script `postgres-create-without-llama.py`, or just creating a Postgres table through PostgresManager, it is important that the table name starts with data_ if it is destined to be reused by llama-index later on. Llama-index injects it itself.
+That is why, when using the script `postgres-load.py`, the table name given as input should not start with data_, because llama-index injects it later on. But it will expect to find a table that starts with data_.
+
+**It is best to only change the schema name and to keep the default table name as they will handle this complexity for you.** 
 
 ### Environment Variables (Optional)
 

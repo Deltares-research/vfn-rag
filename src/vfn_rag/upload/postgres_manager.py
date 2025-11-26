@@ -94,7 +94,7 @@ class PostgresManager:
     
     def create_table(
         self,
-        table_name: str = "vector_store",
+        table_name: str = "data_vector_store",
         schema_name: str = "public",
         embed_dim: int = 3072,
     ) -> None:
@@ -163,7 +163,7 @@ class PostgresManager:
     def insert_nodes(
         self,
         nodes: Sequence[BaseNode],
-        table_name: str = "vector_store",
+        table_name: str = "data_vector_store",
         schema_name: str = "public",
     ) -> None:
         """Insert a list of BaseNode objects into the PostgreSQL table.

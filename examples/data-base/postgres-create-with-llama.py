@@ -68,7 +68,7 @@ store = storage_context.store
 # Create the vector store index from documents and store in PostgreSQL
 print("Creating vector store index...")
 #%% Create nodes
-VectorStoreIndex.from_documents(
+index = VectorStoreIndex.from_documents(
     documents, storage_context=store, show_progress=True
 )
 print("Index created successfully!")
