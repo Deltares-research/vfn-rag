@@ -205,7 +205,7 @@ class PostgresManager:
                 # Prepare metadata with _node_content (required by LlamaIndex)
                 metadata_dict = dict(node.metadata) if node.metadata else {}
                 # Add _node_content which LlamaIndex uses for retrieval
-                metadata_dict["_node_content"] = json.dumps(node.dict())
+                metadata_dict["_node_content"] = json.dumps(node.get_metadata_str())
                 metadata = json.dumps(metadata_dict)
                 
                 node_id = node.node_id
