@@ -86,8 +86,8 @@ print(f"\nTable now contains {count} rows.")
 
 
 #%% Cleanup (optional)
-pm.delete_rows_by_filename(filename="f.txt", table_name=table_name, schema_name=schema_name)
-pm.delete_table(table_name=table_name, schema_name=schema_name)
-print(f"Table {schema_name}.{table_name} deleted.")
-pm.delete_schema(schema_name=schema_name)
-print(f"Schema {schema_name} deleted.")
+# pm.delete_rows_by_filename(filename="f.txt", table_name=table_name, schema_name=schema_name)
+# pm.delete_table(table_name=table_name, schema_name=schema_name)
+# print(f"Table {schema_name}.{table_name} deleted.")
+# pm.delete_schema(schema_name=schema_name)
+# print(f"Schema {schema_name} deleted.")
