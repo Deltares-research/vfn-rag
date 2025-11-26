@@ -19,45 +19,6 @@ from llama_index.core import StorageContext
 __all__ = ["Postgres"]
 
 
-def create_connection_string(
-    host: Optional[str] = None,
-    port: Optional[int] = None,
-    database: Optional[str] = None,
-    user: Optional[str] = None,
-    password: Optional[str] = None,
-    connection_string: Optional[str] = None,
-) -> str:
-    """Create a PostgreSQL connection string.
-    
-    Args:
-        host: PostgreSQL host
-        port: PostgreSQL port (default: 5432)
-        database: Database name
-        user: Username
-        password: Password
-        connection_string: Direct connection string (overrides other parameters)
-        
-    Returns:
-        PostgreSQL connection string
-    """
-    if connection_string:
-        return connection_string
-    
-    # Try to get from environment if not provided
-    host = host or os.environ.get("POSTGRES_HOST")
-    port = port or int(os.environ.get("POSTGRES_PORT", "5432"))
-    database = database or os.environ.get("POSTGRES_DB")
-    user = user or os.environ.get("POSTGRES_USER")
-    password = password or os.environ.get("POSTGRES_PASSWORD")
-    
-    if not all([host, port, database, user, password]):
-        raise ValueError(
-            "Either connection_string or all of (host, port, database, user, password) must be provided"
-        )
-    
-    return f"postgresql://{user}:{password}@{host}:{port}/{database}"
-
-
 class Postgres(BaseStorage):
     """Factory to create a StorageContext using PostgreSQL with pgvector.
 
@@ -90,6 +51,45 @@ class Postgres(BaseStorage):
         self.connection_string = connection_string
         self.port = port
         super().__init__(storage)
+
+    @staticmethod
+    def create_connection_string(
+        host: Optional[str] = None,
+        port: Optional[int] = None,
+        database: Optional[str] = None,
+        user: Optional[str] = None,
+        password: Optional[str] = None,
+        connection_string: Optional[str] = None,
+    ) -> str:
+        """Create a PostgreSQL connection string.
+        
+        Args:
+            host: PostgreSQL host
+            port: PostgreSQL port (default: 5432)
+            database: Database name
+            user: Username
+            password: Password
+            connection_string: Direct connection string (overrides other parameters)
+            
+        Returns:
+            PostgreSQL connection string
+        """
+        if connection_string:
+            return connection_string
+        
+        # Try to get from environment if not provided
+        host = host or os.environ.get("POSTGRES_HOST")
+        port = port or int(os.environ.get("POSTGRES_PORT", "5432"))
+        database = database or os.environ.get("POSTGRES_DB")
+        user = user or os.environ.get("POSTGRES_USER")
+        password = password or os.environ.get("POSTGRES_PASSWORD")
+        
+        if not all([host, port, database, user, password]):
+            raise ValueError(
+                "Either connection_string or all of (host, port, database, user, password) must be provided"
+            )
+        
+        return f"postgresql://{user}:{password}@{host}:{port}/{database}"
 
     @classmethod
     def create(
@@ -126,7 +126,7 @@ class Postgres(BaseStorage):
         port = port or int(os.environ.get("POSTGRES_PORT", "5432"))
         
         # Create connection string if not provided
-        conn_str = create_connection_string(
+        conn_str = cls.create_connection_string(
             host=host,
             port=port,
             database=database,
@@ -181,7 +181,7 @@ class Postgres(BaseStorage):
         port = port or int(os.environ.get("POSTGRES_PORT", "5432"))
         
         # Create connection string if not provided
-        conn_str = create_connection_string(
+        conn_str = cls.create_connection_string(
             host=host,
             port=port,
             database=database,
